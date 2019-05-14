@@ -1,4 +1,6 @@
+package interfaces;
 import javafx.scene.image.Image;
+import misc.ObjectType;;
 
 public interface IGameObject {
 	/**
