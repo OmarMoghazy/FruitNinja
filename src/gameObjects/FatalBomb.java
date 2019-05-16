@@ -1,5 +1,7 @@
 package gameObjects;
 
+import java.io.File;
+
 import interfaces.IGameObject;
 import javafx.scene.image.Image;
 import misc.ObjectType;
@@ -71,8 +73,10 @@ public class FatalBomb implements IGameObject{
 
 	@Override
 	public Image[] getImages() {
-		// TODO Auto-generated method stub
-		return null;
+		Image [] images = new Image[2];
+		images[0] = new Image(new File("Resources/bomb2.png").toURI().toString());
+		images[1] = new Image(new File("Resources/sbomb1.png").toURI().toString());
+		return images;
 	}
 
 }

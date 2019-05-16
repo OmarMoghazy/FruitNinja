@@ -19,13 +19,13 @@ public class GameActions implements IGameActions {
 	}																				//
 																					//
 	//////////////////////////////////////////////////////////////////////////////////
-
-	// Factory
+	
+	// Factory																		
 	GameObjectFactory factory = new GameObjectFactory();
 
 	@Override
 	public IGameObject createGameObject() {
-		return GameObjectFactory.createRandomObject();
+		return GameObjectFactory.createObject();
 	}
 
 	@Override
@@ -37,7 +37,6 @@ public class GameActions implements IGameActions {
 	@Override
 	public void sliceObjects() {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override

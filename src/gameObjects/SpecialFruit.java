@@ -1,5 +1,7 @@
 package gameObjects;
 
+import java.io.File;
+
 import interfaces.IGameObject;
 import javafx.scene.image.Image;
 import misc.ObjectType;
@@ -70,8 +72,21 @@ public class SpecialFruit implements IGameObject{
 
 	@Override
 	public Image[] getImages() {
-		// TODO Auto-generated method stub
-		return null;
+		Image [] images = new Image[2];
+		int x = (int)(Math.random() * 2);
+		switch(x) {
+		case 0 : {
+			images[0] = new Image(new File("Resources/pepper.png").toURI().toString());
+			images[1] = new Image(new File("Resources/spepper.png").toURI().toString());
+		}
+		break;
+		case 1 : {
+			images[0] = new Image(new File("Resources/pepper2.png").toURI().toString());
+			images[1] = new Image(new File("Resources/pepper2.png").toURI().toString());
+		}
+		break;
+		}
+		return images;
 	}
 
 }
