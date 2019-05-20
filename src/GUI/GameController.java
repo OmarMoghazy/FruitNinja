@@ -32,7 +32,6 @@ public class GameController implements Initializable {
 	@FXML Label timeLabel;
 	@FXML Label livesLabel;
 	
-	
 	GraphicsContext gc;
 	ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 	double mouseX;
@@ -78,7 +77,7 @@ public class GameController implements Initializable {
 	protected void loseGame() {
 	}
 	@FXML
-	public void onMouseMoved(MouseEvent event) {
+	public void onDrag(MouseEvent event) {
 		mouseX = event.getX();
 		mouseY = event.getY();
 	}
