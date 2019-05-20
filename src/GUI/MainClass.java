@@ -13,9 +13,9 @@ public class MainClass extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
-		primaryStage.setTitle("Welcome to Fruit Ninja!");
-		primaryStage.setScene(new Scene(root,713,563));
+			Parent root = FXMLLoader.load(getClass().getResource("Game.fxml"));
+		Scene scene = new Scene(root);
+		primaryStage.setScene(scene);
 		primaryStage.show();
 		
 	}

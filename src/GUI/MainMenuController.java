@@ -69,7 +69,7 @@ public class MainMenuController implements Initializable {
 		double x=Math.random();
 		if (x<=1/3)
 			hardbutton(event);
-		else if (x<=1/6)
+		else if (x<=2/3)
 			mediumbutton(event);
 		else if (x<=1)
 			easybutton(event);

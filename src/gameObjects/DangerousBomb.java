@@ -10,6 +10,14 @@ public class DangerousBomb implements IGameObject{
 	private final ObjectType objectType = ObjectType.DANGEROUS_BOMB;
 	int Xlocation;
 	int Ylocation;
+	Image [] images = new Image[2];
+	
+	public DangerousBomb() {
+		images[0] = new Image(new File("Resources/bomb1.png").toURI().toString());
+		images[1] = new Image(new File("Resources/sbomb1.png").toURI().toString());
+		this.Xlocation = (int) (Math.random() * 600 + 75);
+		this.Ylocation = 0;
+	}
 
 	@Override
 	public ObjectType getObjectType() {
@@ -54,8 +62,7 @@ public class DangerousBomb implements IGameObject{
 
 	@Override
 	public Boolean hasMovedOffScreen() {
-		// TODO Auto-generated method stub
-		return null;
+		return Xlocation >= 800 || Ylocation >= 50 || Xlocation <= -50 || Ylocation <= -650;
 	}
 
 	@Override
@@ -66,15 +73,12 @@ public class DangerousBomb implements IGameObject{
 
 	@Override
 	public void move(double time) {
-		// TODO Auto-generated method stub
-		
+		this.Ylocation -= 5;
 	}
 
 	@Override
 	public Image[] getImages() {
-		Image [] images = new Image[2];
-		images[0] = new Image(new File("Resources/bomb1.png").toURI().toString());
-		images[1] = new Image(new File("Resources/sbomb1.png").toURI().toString());
+		
 		return images;
 	}
 }

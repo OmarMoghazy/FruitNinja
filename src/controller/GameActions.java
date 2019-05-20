@@ -2,9 +2,14 @@ package controller;
 
 import interfaces.IGameObject;
 import misc.GameObjectFactory;
+
+import java.util.ArrayList;
+
 import interfaces.IGameActions;
 
 public class GameActions implements IGameActions {
+	
+	ArrayList<IGameObject> gameObjects = new ArrayList<IGameObject>();
 	
 	// Singleton
 	//////////////////////////////////////////////////////////////////////////////////
