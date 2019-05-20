@@ -1,6 +1,7 @@
 package controller;
 
 import interfaces.IGameObject;
+import javafx.scene.canvas.GraphicsContext;
 import misc.GameObjectFactory;
 
 import java.util.ArrayList;
@@ -9,8 +10,7 @@ import gameObjects.GameObject;
 import interfaces.IGameActions;
 
 public class GameActions implements IGameActions {
-	
-	ArrayList<IGameObject> gameObjects = new ArrayList<IGameObject>();
+	private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 	
 	// Singleton
 	//////////////////////////////////////////////////////////////////////////////////
@@ -24,31 +24,29 @@ public class GameActions implements IGameActions {
 		return gameActions;															//
 	}																				//
 																					//
-	//////////////////////////////////////////////////////////////////////////////////
-	
-	// Factory																		
-	GameObjectFactory factory = new GameObjectFactory();
+	//////////////////////////////////////////////////////////////////////////////////							
 
 	@Override
-	public GameObject createGameObject() {
-		return GameObjectFactory.createObject();
+	public void createGameObject() {
+		gameObjects.add(GameObjectFactory.createObject());
 	}
 
 	@Override
-	public void updateObjectsLocations() {
-		// TODO Auto-generated method stub
+	public void updateObjectsLocations(GraphicsContext gc) {
+		for(GameObject x : gameObjects) {
+			x.move(0);
+			x.render(gc);
+		}
 
-	}
-
-	@Override
-	public void sliceObjects() {
-		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public void ResetGame() {
 		// TODO Auto-generated method stub
 
+	}
+	public ArrayList<GameObject> getGameObjects() {
+		return gameObjects;
 	}
 
 }

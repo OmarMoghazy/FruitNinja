@@ -6,7 +6,10 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import controller.GameActions;
+import gameObjects.DangerousBomb;
 import gameObjects.GameObject;
+import gameObjects.RegularFruit;
+import gameObjects.SpecialFruit;
 import interfaces.IGameObject;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
@@ -26,30 +29,30 @@ import misc.ObjectType;
 
 public class GameController implements Initializable {
 
-	@FXML Canvas canvas;
-	@FXML Label scoreLabel;
-	@FXML Label highscoreLabel;
-	@FXML Label timeLabel;
-	@FXML Label livesLabel;
-	
+	@FXML
+	Canvas canvas;
+	@FXML
+	Label scoreLabel;
+	@FXML
+	Label highscoreLabel;
+	@FXML
+	Label timeLabel;
+	@FXML
+	Label livesLabel;
+
 	GraphicsContext gc;
-	ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 	double mouseX;
 	double mouseY;
 	private int score = 0;
 	private int lives = 3;
-	
+
+	GameActions gameActions;
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		GameActions gameActions = GameActions.getInstance();
+		gameActions = GameActions.getInstance();
 		gc = canvas.getGraphicsContext2D();
-		Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), actionEvent->{
-			ArrayList<GameObject> toBeDeleted = new ArrayList<GameObject>();
-			for(GameObject x : gameObjects) {
-				if(x.hasMovedOffScreen()) toBeDeleted.add(x);
-			}
-			gameObjects.removeAll(toBeDeleted);
-			gameObjects.add(gameActions.createGameObject());
+		Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), actionEvent -> {
+			gameActions.createGameObject();
 			System.out.println(score + " " + lives);
 		}));
 		timeline.setCycleCount(Timeline.INDEFINITE);
@@ -59,25 +62,47 @@ public class GameController implements Initializable {
 			public void handle(long arg0) {
 				gc.clearRect(0, 0, 800, 600);
 				gc.drawImage(new Image(new File("Resources/bg.png").toURI().toString()), 0, 0, 800, 600);
-				for(int i = 0; i <gameObjects.size();i++) {
-					if((mouseX >= gameObjects.get(i).getXlocation() && mouseX <= gameObjects.get(i).getXlocation() + 75) && (mouseY >= gameObjects.get(i).getYlocation() && mouseY <= gameObjects.get(i).getYlocation() + 75) ) {
-						gameObjects.get(i).slice();
-						if(gameObjects.get(i).getObjectType().equals(ObjectType.REGULAR_FRUIT)) score++;
-						else if(gameObjects.get(i).getObjectType().equals(ObjectType.SPECIAL_FRUIT)) score = score + 5;
-						else if(gameObjects.get(i).getObjectType().equals(ObjectType.DANGEROUS_BOMB)) lives--; 
-						else loseGame();
+				
+				ArrayList<GameObject> toBeDeleted = new ArrayList<GameObject>();
+				
+				for (int i = 0; i < gameActions.getGameObjects().size(); i++) {
+					if ((mouseX >= gameActions.getGameObjects().get(i).getXlocation()
+							&& mouseX <= gameActions.getGameObjects().get(i).getXlocation() + 75)
+							&& !gameActions.getGameObjects().get(i).isSliced()
+							&& (mouseY >= gameActions.getGameObjects().get(i).getYlocation()
+									&& mouseY <= gameActions.getGameObjects().get(i).getYlocation() + 75)) {
+						gameActions.getGameObjects().get(i).slice();
+						if (gameActions.getGameObjects().get(i) instanceof RegularFruit)
+							score++;
+						else if (gameActions.getGameObjects().get(i) instanceof SpecialFruit)
+							score = score + 5;
+						else if (gameActions.getGameObjects().get(i) instanceof DangerousBomb)
+							lives--;
+						else
+							loseGame();
+
 					}
-					gameObjects.get(i).move(arg0);
-					gameObjects.get(i).render(gc);
+					for (GameObject x : gameActions.getGameObjects()) {
+						if (x.hasMovedOffScreen()) {
+							toBeDeleted.add(x);
+						if(!x.isSliced()) 
+							if(x instanceof RegularFruit || x instanceof SpecialFruit) {
+								lives--;
+							}}
+					}
+					gameActions.getGameObjects().removeAll(toBeDeleted);
+					gameActions.updateObjectsLocations(gc);
 				}
 			}
 		};
 		x.start();
 	}
+
 	protected void loseGame() {
 	}
+
 	@FXML
-	public void onDrag(MouseEvent event) {
+	public void onMouseMoved(MouseEvent event) {
 		mouseX = event.getX();
 		mouseY = event.getY();
 	}
