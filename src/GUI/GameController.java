@@ -1,10 +1,10 @@
 package GUI;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
 import controller.GameActions;
 import gameObjects.DangerousBomb;
 import gameObjects.GameObject;
@@ -18,69 +18,96 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import misc.ObjectType;
 
 public class GameController implements Initializable {
 
-	@FXML
-	Canvas canvas;
-	@FXML
-	Label scoreLabel;
-	@FXML
-	Label highscoreLabel;
-	@FXML
-	Label timeLabel;
-	@FXML
-	Label livesLabel;
+	@FXML Canvas canvas;
+	@FXML Label scorelabel;
+	@FXML Label highscorelabel;
+	@FXML Label gamediflabel;
+	@FXML Label timeLabel;
+	@FXML ImageView life1;
+	@FXML ImageView life2;
+	@FXML ImageView life3;
+	@FXML Button resetButton;
 
-	GraphicsContext gc;
 	double mouseX;
 	double mouseY;
 	private int score = 0;
 	private int lives = 3;
+	private int time = 0;
 
-	GameActions gameActions;
+	GraphicsContext gc;
+	Timeline timeline;
+	ArrayList<GameObject> toBeDeleted = new ArrayList<GameObject>();
+	GameActions gameActions = GameActions.getInstance();
+	AnimationTimer x;
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		gameActions = GameActions.getInstance();
 		gc = canvas.getGraphicsContext2D();
-		Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), actionEvent -> {
+		timeline = new Timeline(new KeyFrame(Duration.seconds(1), actionEvent -> {
 			gameActions.createGameObject();
-			System.out.println(score + " " + lives);
+			scorelabel.setText(Integer.toString(score));
+			timeLabel.setText(Integer.toString(time));
+			if(lives < 3)
+				life1.setVisible(false);
+			if(lives < 2)
+				life2.setVisible(false);
+			if(lives < 1)
+				life3.setVisible(false);
+			time++;
 		}));
 		timeline.setCycleCount(Timeline.INDEFINITE);
 		timeline.play();
-		AnimationTimer x = new AnimationTimer() {
+		x = new AnimationTimer() {
 			@Override
 			public void handle(long arg0) {
 				gc.clearRect(0, 0, 800, 600);
 				gc.drawImage(new Image(new File("Resources/bg.png").toURI().toString()), 0, 0, 800, 600);
-				
-				ArrayList<GameObject> toBeDeleted = new ArrayList<GameObject>();
-				
+
 				for (int i = 0; i < gameActions.getGameObjects().size(); i++) {
 					if ((mouseX >= gameActions.getGameObjects().get(i).getXlocation()
 							&& mouseX <= gameActions.getGameObjects().get(i).getXlocation() + 75)
 							&& !gameActions.getGameObjects().get(i).isSliced()
 							&& (mouseY >= gameActions.getGameObjects().get(i).getYlocation()
-									&& mouseY <= gameActions.getGameObjects().get(i).getYlocation() + 75)) {
+								&& mouseY <= gameActions.getGameObjects().get(i).getYlocation() + 75)) {
 						gameActions.getGameObjects().get(i).slice();
 						if (gameActions.getGameObjects().get(i) instanceof RegularFruit)
 							score++;
-						else if (gameActions.getGameObjects().get(i) instanceof SpecialFruit)
-							score = score + 5;
-						else if (gameActions.getGameObjects().get(i) instanceof DangerousBomb)
+						else if (gameActions.getGameObjects().get(i) instanceof SpecialFruit){
+							//special fruit slices all fruits
+							/*for (int j = 0; j < gameActions.getGameObjects().size(); j++) {
+								if (gameActions.getGameObjects().get(i) instanceof RegularFruit)
+									gameActions.getGameObjects().get(i).slice();
+							}*/
+							score = score+5;
+						}
+						else if (gameActions.getGameObjects().get(i) instanceof DangerousBomb){
 							lives--;
+							if(lives ==0 )
+								loseGame();
+						}
 						else
 							loseGame();
-
 					}
 					for (GameObject x : gameActions.getGameObjects()) {
 						if (x.hasMovedOffScreen()) {
@@ -88,6 +115,8 @@ public class GameController implements Initializable {
 						if(!x.isSliced()) 
 							if(x instanceof RegularFruit || x instanceof SpecialFruit) {
 								lives--;
+								if(lives ==0 )
+									loseGame();
 							}}
 					}
 					gameActions.getGameObjects().removeAll(toBeDeleted);
@@ -98,7 +127,11 @@ public class GameController implements Initializable {
 		x.start();
 	}
 
-	protected void loseGame() {
+	private void loseGame() {
+		System.out.println("the snooze u loose");
+		//alertBox("u kidding meeeeeeeee", "Resources/u loose.png");
+		//resetButton.fire();
+		x.stop();
 	}
 
 	@FXML
@@ -106,4 +139,37 @@ public class GameController implements Initializable {
 		mouseX = event.getX();
 		mouseY = event.getY();
 	}
+
+	@FXML
+	public void reset(ActionEvent e) throws IOException{
+		Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
+		Parent root = FXMLLoader.load(getClass().getResource("Game.fxml"));
+		Scene scene = new Scene(root, 1000, 552);
+		window.setScene(scene);
+		window.show();
+	}
+
+	// alertBox
+	public static void alertBox(String title, String FileName) {
+		Stage alert = new Stage();
+		alert.initModality(Modality.APPLICATION_MODAL);
+		alert.setTitle(title);
+		alert.setMinHeight(200);
+		alert.setMinWidth(250);
+
+		Image image = new Image(new File(FileName).toURI().toString());
+		ImageView imageView = new ImageView(image);
+		//Label label = new Label(FileName);
+		VBox layout = new VBox();
+		//layout.getChildren().add(label);
+		layout.getChildren().add(imageView);
+		layout.setAlignment(Pos.CENTER);
+		Scene scene = new Scene(layout);
+		alert.setScene(scene);
+		alert.showAndWait();
+	}
 }
+
+//moved to be deleted array out of the handle function
+//moved gameActions too so it can be used in functions
+//moved animation timer out too so it can be stopped on loss

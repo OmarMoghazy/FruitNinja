@@ -2,6 +2,9 @@ package interfaces;
 
 import gameObjects.GameObject;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.MouseEvent;
+
+import java.io.IOException;
 
 public interface IGameActions {
 	/*
@@ -18,7 +21,5 @@ public interface IGameActions {
 	This method can take your swiping region as parameters (they
 	depend on how you calculate it).
 	*/
-	public void ResetGame();
-
-	
+	public void ResetGame(MouseEvent e) throws IOException;
 }

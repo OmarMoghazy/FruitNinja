@@ -37,7 +37,6 @@ public class MainMenuController implements Initializable {
 
     @FXML
 	public void easybutton(ActionEvent event) throws IOException {
-		System.out.println("Easy");
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		Parent root = FXMLLoader.load(getClass().getResource("GamePlay.fxml"));
 		Scene scene = new Scene(root, 1000, 552);
@@ -47,7 +46,6 @@ public class MainMenuController implements Initializable {
 
 	@FXML
 	public void mediumbutton(ActionEvent event) throws IOException {
-		System.out.println("Medium");
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		Parent root = FXMLLoader.load(getClass().getResource("GamePlay.fxml"));
 		Scene scene = new Scene(root, 1000, 552);
@@ -56,7 +54,6 @@ public class MainMenuController implements Initializable {
 	}
 	@FXML
 	public void hardbutton(ActionEvent event) throws IOException {
-		System.out.println("Hard");
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		Parent root = FXMLLoader.load(getClass().getResource("GamePlay.fxml"));
 		Scene scene = new Scene(root, 1000, 552);
