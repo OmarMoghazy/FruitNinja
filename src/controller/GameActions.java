@@ -40,7 +40,6 @@ public class GameActions implements IGameActions {
 			x.move(0);
 			x.render(gc);
 		}
-
 	}
 
 	@Override
@@ -83,10 +82,7 @@ public class GameActions implements IGameActions {
 		time++;
 	}
 
-	public void scorePlusOne() {
-		score++;
-
-	}
+	public void scorePlusOne() { score++; }
 
 	public void scorePlusFive() {
 		score = score + 5;
@@ -95,12 +91,15 @@ public class GameActions implements IGameActions {
 	public void loseLife() {
 		lives--;
 	}
+
 	public static Difficulty getDifficulty() {
 		return difficulty;
 	}
+
 	public static void setDifficulty(Difficulty difficulty) {
 		GameActions.difficulty = difficulty;
 	}
+
 	public void sliceObject(GameObject gameObject) {
 		gameObject.slice();
 		if(gameObject instanceof RegularFruit) scorePlusOne();
@@ -120,9 +119,4 @@ public class GameActions implements IGameActions {
 		gameActions.getGameObjects().removeAll(toBeDeleted);
 		toBeDeleted.clear();
 	}
-
 }
-
-//reset game
-//labels
-//special fruit

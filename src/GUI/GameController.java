@@ -25,32 +25,23 @@ import misc.Alerts;
 
 public class GameController implements Initializable {
 
-	@FXML
-	Canvas canvas;
-	@FXML
-	Label scorelabel;
-	@FXML
-	Label highscorelabel;
-	@FXML
-	Label gamediflabel;
-	@FXML
-	Label timeLabel;
-	@FXML
-	ImageView life1;
-	@FXML
-	ImageView life2;
-	@FXML
-	ImageView life3;
-	@FXML
-	Button resetButton;
+	@FXML Canvas canvas;
+	@FXML Label scorelabel;
+	@FXML Label highscorelabel;
+	@FXML Label gamediflabel;
+	@FXML Label timeLabel;
+	@FXML ImageView life1;
+	@FXML ImageView life2;
+	@FXML ImageView life3;
+	@FXML Button resetButton;
 
-	double mouseX;
-	double mouseY;
+	private double mouseX;
+	private double mouseY;
 
-	GraphicsContext gc;
-	Timeline timeline;
-	GameActions gameActions = GameActions.getInstance();
-	AnimationTimer x;
+	private GraphicsContext gc;
+	private Timeline timeline;
+	private GameActions gameActions = GameActions.getInstance();
+	private AnimationTimer x;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -103,7 +94,7 @@ public class GameController implements Initializable {
 		System.out.println("the snooze u loose");
 		x.stop();
 		timeline.stop();
-		Alerts.textAlert("u kiding meeeee", "u loose");
+		Alerts.imageAlert("u kiding meeeee", "Resources/gaemo.png");
 		// resetButton.fire();
 	}
 
@@ -120,9 +111,6 @@ public class GameController implements Initializable {
 		x.start();
 		timeline.play();
 	}
-
-	// alertBox
-
 }
 
 //moved to be deleted array out of the handle function
