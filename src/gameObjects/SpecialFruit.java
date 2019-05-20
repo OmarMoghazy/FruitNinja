@@ -23,13 +23,14 @@ public class SpecialFruit extends GameObject implements IGameObject{
 		break;
 		}
 		this.Xlocation = (int) (Math.random() * 600 +75 );
-		this.Ylocation = 0;
+		this.Ylocation = 550;
+		maxHeight = Math.random() * 600 * 0.2;
+		initialVelocity = Math.random() * 6 + 5;
 	}
 
 	@Override
-	public int getMaxHeight() {
-		// TODO Auto-generated method stub
-		return 0;
+	public double getMaxHeight() {
+		return maxHeight;
 	}
 
 	@Override

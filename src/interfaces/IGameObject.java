@@ -10,15 +10,15 @@ public interface IGameObject {
 	/*
 	*@return X location of game object
 	*/
-	public int getXlocation();
+	public double getXlocation();
 	/*
 	*@return Y location of game object
 	*/
-	public int getYlocation();
+	public double getYlocation();
 	/*
 	*@return max Y location that the object can reach on the screen
 	*/
-	public int getMaxHeight();
+	public double getMaxHeight();
 	/*
 	*@return velocity at which game object is thrown
 	*/

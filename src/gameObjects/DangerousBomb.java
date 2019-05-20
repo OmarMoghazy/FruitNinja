@@ -11,14 +11,15 @@ public class DangerousBomb extends GameObject implements IGameObject{
 	public DangerousBomb() {
 		images[0] = new Image(new File("Resources/bomb1.png").toURI().toString());
 		images[1] = new Image(new File("Resources/sbomb1.png").toURI().toString());
-		this.Xlocation = (int) (Math.random() * 600 + 75);
-		this.Ylocation = 0;
+		this.Xlocation = Math.random() * 600 + 75;
+		this.Ylocation = 550;
+		maxHeight = Math.random() * 600 * 0.2;
+		initialVelocity = Math.random() * 6 + 5;
 	}
 
 	@Override
-	public int getMaxHeight() {
-		// TODO Auto-generated method stub
-		return 0;
+	public double getMaxHeight() {
+		return maxHeight;
 	}
 
 	@Override

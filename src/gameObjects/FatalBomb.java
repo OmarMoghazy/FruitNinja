@@ -12,12 +12,14 @@ public class FatalBomb extends GameObject implements IGameObject{
 		images[0] = new Image(new File("Resources/bomb2.png").toURI().toString());
 		images[1] = new Image(new File("Resources/sbomb1.png").toURI().toString());
 		this.Xlocation = (int) (Math.random() * 600 +75);
-		this.Ylocation = 0;
+		this.Ylocation = 550;
+		maxHeight = Math.random() * 600 * 0.2;
+		initialVelocity = Math.random() * 6 + 5;
 	}
-
+	
 	@Override
-	public int getMaxHeight() {
-		return 0;
+	public double getMaxHeight() {
+		return maxHeight;
 	}
 
 	@Override
