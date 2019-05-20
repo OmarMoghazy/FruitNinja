@@ -4,7 +4,7 @@ import gameObjects.*;
 import interfaces.IGameObject;
 
 public class GameObjectFactory {
-	public static IGameObject createObject() {
+	public static GameObject createObject() {
 		int x  = (int)( Math.random() * 20 );
 		if(x < 14) return new RegularFruit();
 		else if(x < 15) return new SpecialFruit();
@@ -13,7 +13,7 @@ public class GameObjectFactory {
 		return null;
 	}
 	
-	public static IGameObject createObject(ObjectType type) {
+	public static GameObject createObject(ObjectType type) {
 		if(type.equals(ObjectType.REGULAR_FRUIT)) return new RegularFruit();
 		else if(type.equals(ObjectType.SPECIAL_FRUIT)) return new SpecialFruit();
 		else if(type.equals(ObjectType.DANGEROUS_BOMB)) return new DangerousBomb();

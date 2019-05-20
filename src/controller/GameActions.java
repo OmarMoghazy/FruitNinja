@@ -5,6 +5,7 @@ import misc.GameObjectFactory;
 
 import java.util.ArrayList;
 
+import gameObjects.GameObject;
 import interfaces.IGameActions;
 
 public class GameActions implements IGameActions {
@@ -29,7 +30,7 @@ public class GameActions implements IGameActions {
 	GameObjectFactory factory = new GameObjectFactory();
 
 	@Override
-	public IGameObject createGameObject() {
+	public GameObject createGameObject() {
 		return GameObjectFactory.createObject();
 	}
 

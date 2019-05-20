@@ -6,11 +6,7 @@ import interfaces.IGameObject;
 import javafx.scene.image.Image;
 import misc.ObjectType;
 
-public class SpecialFruit implements IGameObject{
-	private final ObjectType objectType = ObjectType.DANGEROUS_BOMB;
-	int Xlocation;
-	int Ylocation;
-	Image [] images = new Image[2];
+public class SpecialFruit extends GameObject implements IGameObject{
 	
 	public SpecialFruit() {
 		int x = (int)(Math.random() * 2);
@@ -28,23 +24,6 @@ public class SpecialFruit implements IGameObject{
 		}
 		this.Xlocation = (int) (Math.random() * 600 +75 );
 		this.Ylocation = 0;
-	}
-	@Override
-	public ObjectType getObjectType() {
-		// TODO Auto-generated method stub
-		return objectType;
-	}
-
-	@Override
-	public int getXlocation() {
-		// TODO Auto-generated method stub
-		return Xlocation;
-	}
-
-	@Override
-	public int getYlocation() {
-		// TODO Auto-generated method stub
-		return Ylocation;
 	}
 
 	@Override
@@ -64,33 +43,11 @@ public class SpecialFruit implements IGameObject{
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-	@Override
-	public Boolean isSliced() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Boolean hasMovedOffScreen() {
-		return Xlocation >= 800 || Ylocation >= 50 || Xlocation <= -50 || Ylocation <= -650;
-	}
-
+	
 	@Override
 	public void slice() {
-		// TODO Auto-generated method stub
+		isSliced = true;
 		
-	}
-
-	@Override
-	public void move(double time) {
-		this.Ylocation -= 5;
-		
-	}
-
-	@Override
-	public Image[] getImages() {
-		return images;
 	}
 
 }

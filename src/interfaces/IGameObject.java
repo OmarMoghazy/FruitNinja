@@ -40,13 +40,6 @@ public interface IGameObject {
 	*/
 	public void slice();
 	/*
-	*it is used to move the object on the screen
-	@param deltaTime: time elapsed since the object is thrown
-	it is used calculate the new position of
-	fruit object.
-	*/
-	public void move(double time);
-	/*
 	*@return at least two images of the object, one when it is
 	sliced and one when it is not.
 	*/

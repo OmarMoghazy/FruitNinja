@@ -1,10 +1,12 @@
 package interfaces;
 
+import gameObjects.GameObject;
+
 public interface IGameActions {
 	/*
 	 * @return created game object
 	 */
-	public IGameObject createGameObject();
+	public GameObject createGameObject();
 
 	/*
 	 * update moving objects locations
