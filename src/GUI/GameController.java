@@ -35,25 +35,32 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import misc.Alerts;
 import misc.ObjectType;
 
 public class GameController implements Initializable {
 
-	@FXML Canvas canvas;
-	@FXML Label scorelabel;
-	@FXML Label highscorelabel;
-	@FXML Label gamediflabel;
-	@FXML Label timeLabel;
-	@FXML ImageView life1;
-	@FXML ImageView life2;
-	@FXML ImageView life3;
-	@FXML Button resetButton;
+	@FXML
+	Canvas canvas;
+	@FXML
+	Label scorelabel;
+	@FXML
+	Label highscorelabel;
+	@FXML
+	Label gamediflabel;
+	@FXML
+	Label timeLabel;
+	@FXML
+	ImageView life1;
+	@FXML
+	ImageView life2;
+	@FXML
+	ImageView life3;
+	@FXML
+	Button resetButton;
 
 	double mouseX;
 	double mouseY;
-	private int score = 0;
-	private int lives = 3;
-	private int time = 0;
 
 	GraphicsContext gc;
 	Timeline timeline;
@@ -66,15 +73,9 @@ public class GameController implements Initializable {
 		gc = canvas.getGraphicsContext2D();
 		timeline = new Timeline(new KeyFrame(Duration.seconds(1), actionEvent -> {
 			gameActions.createGameObject();
-			scorelabel.setText(Integer.toString(score));
-			timeLabel.setText(Integer.toString(time));
-			if(lives < 3)
-				life1.setVisible(false);
-			if(lives < 2)
-				life2.setVisible(false);
-			if(lives < 1)
-				life3.setVisible(false);
-			time++;
+			scorelabel.setText(Integer.toString(gameActions.getScore()));
+			timeLabel.setText(Integer.toString(gameActions.getTime()));
+			gameActions.incrementTime();
 		}));
 		timeline.setCycleCount(Timeline.INDEFINITE);
 		timeline.play();
@@ -89,39 +90,47 @@ public class GameController implements Initializable {
 							&& mouseX <= gameActions.getGameObjects().get(i).getXlocation() + 75)
 							&& !gameActions.getGameObjects().get(i).isSliced()
 							&& (mouseY >= gameActions.getGameObjects().get(i).getYlocation()
-								&& mouseY <= gameActions.getGameObjects().get(i).getYlocation() + 75)) {
+									&& mouseY <= gameActions.getGameObjects().get(i).getYlocation() + 75)) {
 						gameActions.getGameObjects().get(i).slice();
 						if (gameActions.getGameObjects().get(i) instanceof RegularFruit)
-							score++;
-						else if (gameActions.getGameObjects().get(i) instanceof SpecialFruit){
-							//special fruit slices all fruits
-							/*for (int j = 0; j < gameActions.getGameObjects().size(); j++) {
-								if (gameActions.getGameObjects().get(i) instanceof RegularFruit)
-									gameActions.getGameObjects().get(i).slice();
-							}*/
-							score = score+5;
-						}
-						else if (gameActions.getGameObjects().get(i) instanceof DangerousBomb){
-							lives--;
-							if(lives ==0 )
+							gameActions.scorePlusOne();
+						else if (gameActions.getGameObjects().get(i) instanceof SpecialFruit) {
+							// special fruit slices all fruits
+							/*
+							 * for (int j = 0; j < gameActions.getGameObjects().size(); j++) { if
+							 * (gameActions.getGameObjects().get(i) instanceof RegularFruit)
+							 * gameActions.getGameObjects().get(i).slice(); }
+							 */
+							gameActions.scorePlusFive();
+						} else if (gameActions.getGameObjects().get(i) instanceof DangerousBomb) {
+							gameActions.loseLife();
+							if (gameActions.getLives() == 0)
 								loseGame();
-						}
-						else
+						} else
 							loseGame();
 					}
 					for (GameObject x : gameActions.getGameObjects()) {
 						if (x.hasMovedOffScreen()) {
 							toBeDeleted.add(x);
-						if(!x.isSliced()) 
-							if(x instanceof RegularFruit || x instanceof SpecialFruit) {
-								lives--;
-								if(lives ==0 )
-									loseGame();
-							}}
+							if (!x.isSliced())
+								if (x instanceof RegularFruit || x instanceof SpecialFruit) {
+									gameActions.loseLife();
+									if (gameActions.getLives() == 0)
+										loseGame();
+								}
+						}
 					}
 					gameActions.getGameObjects().removeAll(toBeDeleted);
+					toBeDeleted.clear();
 					gameActions.updateObjectsLocations(gc);
+					
 				}
+				if (gameActions.getLives() < 3)
+					life1.setVisible(false);
+				if (gameActions.getLives() < 2)
+					life2.setVisible(false);
+				if (gameActions.getLives() < 1)
+					life3.setVisible(false);
 			}
 		};
 		x.start();
@@ -130,8 +139,9 @@ public class GameController implements Initializable {
 	private void loseGame() {
 		System.out.println("the snooze u loose");
 		x.stop();
-		//alertBox("u kidding meeeeeeeee", "Resources/u loose.png");
-		//resetButton.fire();
+		timeline.stop();
+		Alerts.textAlert("u kiding meeeee", "u loose");
+		// resetButton.fire();
 	}
 
 	@FXML
@@ -141,7 +151,7 @@ public class GameController implements Initializable {
 	}
 
 	@FXML
-	public void reset(ActionEvent e) throws IOException{
+	public void reset(ActionEvent e) throws IOException {
 		Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
 		Parent root = FXMLLoader.load(getClass().getResource("Game.fxml"));
 		Scene scene = new Scene(root, 1000, 552);
@@ -159,14 +169,14 @@ public class GameController implements Initializable {
 
 		Image image = new Image(new File(FileName).toURI().toString());
 		ImageView imageView = new ImageView(image);
-		//Label label = new Label(FileName);
+		// Label label = new Label(FileName);
 		VBox layout = new VBox();
-		//layout.getChildren().add(label);
+		// layout.getChildren().add(label);
 		layout.getChildren().add(imageView);
 		layout.setAlignment(Pos.CENTER);
 		Scene scene = new Scene(layout);
 		alert.setScene(scene);
-		alert.showAndWait();
+		alert.show();
 	}
 }
 
