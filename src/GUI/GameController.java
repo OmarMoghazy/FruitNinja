@@ -26,6 +26,8 @@ public class GameController implements Initializable {
 	@FXML Canvas canvas;
 	GraphicsContext gc;
 	ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
+	double mouseX;
+	double mouseY;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -55,7 +57,7 @@ public class GameController implements Initializable {
 		x.start();
 	}
 	@FXML
-	public void onMouseDragged(ActionEvent e) {
-		System.out.println("mouse dragged");
+	public void onMouseMoved() {
+		System.out.println("hala hala");
 	}
 }

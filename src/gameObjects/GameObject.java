@@ -13,7 +13,7 @@ public class GameObject {
 	boolean up = true;
 	double maxHeight;
 	double initialVelocity;
-	double acceleration = -1;
+	double acceleration = -0.00001;
 	double currentVelocity;
 
 	public ObjectType getObjectType() {
@@ -48,13 +48,13 @@ public class GameObject {
 	}
 
 	public void move(long time) {
-		double mtime = (double)time* Math.pow(10, -6);
+		/*double mtime = (double)time* Math.pow(10, -6);
 		  double newCurrentVelocity = currentVelocity + acceleration * mtime;
 		  double newYLocation = Ylocation + currentVelocity * mtime + (1/2) * acceleration * mtime * mtime;
 		  Ylocation = newYLocation; 
 		  currentVelocity = newCurrentVelocity;
 		  
-		 /*
+		 */
 		if (up) {
 			double newYLocation = Ylocation - 7;
 			if (newYLocation < maxHeight)
@@ -62,6 +62,5 @@ public class GameObject {
 			else
 				Ylocation = newYLocation;
 		} else  Ylocation += 7;
-*/
 	}
 }
