@@ -38,4 +38,9 @@ public class DangerousBomb extends GameObject implements IGameObject{
 	public void slice() {
 		isSliced = true;
 	}
+
+	@Override
+	public ObjectType getObjectType() {
+		return ObjectType.DANGEROUS_BOMB;
+	}
 }

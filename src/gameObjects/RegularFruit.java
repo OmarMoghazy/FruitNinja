@@ -55,4 +55,9 @@ public class RegularFruit extends GameObject implements IGameObject {
 		isSliced = true;
 	}
 
+	@Override
+	public ObjectType getObjectType() {
+		return ObjectType.REGULAR_FRUIT;
+	}
+
 }

@@ -38,4 +38,9 @@ public class FatalBomb extends GameObject implements IGameObject{
 		
 	}
 
+	@Override
+	public ObjectType getObjectType() {
+		return ObjectType.FATAL_BOMB;
+	}
+
 }
