@@ -16,7 +16,7 @@ public class GameActions implements IGameActions {
 	private int score = 0;
 	private int lives = 3;
 	private int time = 0;
-	private static Difficulty difficulty;
+	private static Difficulty difficulty = Difficulty.EASY;
 	ArrayList<GameObject> toBeDeleted = new ArrayList<GameObject>();
 	
 	// Singleton
@@ -37,7 +37,7 @@ public class GameActions implements IGameActions {
 	@Override
 	public void updateObjectsLocations(GraphicsContext gc) {
 		for (GameObject x : gameObjects) {
-			x.move(0);
+			x.move(0,difficulty);
 			x.render(gc);
 		}
 
