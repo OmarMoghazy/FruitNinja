@@ -24,7 +24,7 @@ public class Alerts {
 		layout2.setAlignment(Pos.CENTER);
 		Scene alertScene = new Scene(layout2, 200, 200);
 		window2.setScene(alertScene);
-		window2.show();
+		window2.showAndWait();
 	}
 
 }
