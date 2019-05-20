@@ -1,16 +1,23 @@
 package controller;
 
 import interfaces.IGameObject;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import misc.GameObjectFactory;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import gameObjects.GameObject;
 import interfaces.IGameActions;
 
 public class GameActions implements IGameActions {
-	
-	ArrayList<IGameObject> gameObjects = new ArrayList<IGameObject>();
+	private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 	
 	// Singleton
 	//////////////////////////////////////////////////////////////////////////////////
@@ -24,31 +31,36 @@ public class GameActions implements IGameActions {
 		return gameActions;															//
 	}																				//
 																					//
-	//////////////////////////////////////////////////////////////////////////////////
-	
-	// Factory																		
-	GameObjectFactory factory = new GameObjectFactory();
+	//////////////////////////////////////////////////////////////////////////////////							
 
 	@Override
-	public GameObject createGameObject() {
-		return GameObjectFactory.createObject();
+	public void createGameObject() {
+		gameObjects.add(GameObjectFactory.createObject());
 	}
 
 	@Override
-	public void updateObjectsLocations() {
-		// TODO Auto-generated method stub
+	public void updateObjectsLocations(GraphicsContext gc) {
+		for(GameObject x : gameObjects) {
+			x.move(0);
+			x.render(gc);
+		}
 
 	}
 
 	@Override
-	public void sliceObjects() {
-		// TODO Auto-generated method stub
+	public void ResetGame(MouseEvent e) throws IOException {
+		Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
+		Parent root = FXMLLoader.load(getClass().getResource("Game.fxml"));
+		Scene scene = new Scene(root, 1000, 552);
+		window.setScene(scene);
+		window.show();
 	}
-
-	@Override
-	public void ResetGame() {
-		// TODO Auto-generated method stub
-
+	public ArrayList<GameObject> getGameObjects() {
+		return gameObjects;
 	}
 
 }
+
+//reset game
+//labels
+//special fruit

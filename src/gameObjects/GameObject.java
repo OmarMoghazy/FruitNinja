@@ -15,6 +15,7 @@ public class GameObject {
 	double initialVelocity;
 	double acceleration = -0.00001;
 	double currentVelocity;
+	public boolean hasBeenSliced = false;
 
 	public ObjectType getObjectType() {
 		return objectType;
@@ -65,5 +66,9 @@ public class GameObject {
 	}
 	public void slice() {
 		isSliced =true;
+	}
+
+	public boolean hasBeenSliced() {
+		return hasBeenSliced;
 	}
 }
