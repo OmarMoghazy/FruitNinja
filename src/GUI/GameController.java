@@ -129,13 +129,13 @@ public class GameController implements Initializable {
 
 	private void loseGame() {
 		System.out.println("the snooze u loose");
+		x.stop();
 		//alertBox("u kidding meeeeeeeee", "Resources/u loose.png");
 		//resetButton.fire();
-		x.stop();
 	}
 
 	@FXML
-	public void onMouseMoved(MouseEvent event) {
+	public void onDrag(MouseEvent event) {
 		mouseX = event.getX();
 		mouseY = event.getY();
 	}
