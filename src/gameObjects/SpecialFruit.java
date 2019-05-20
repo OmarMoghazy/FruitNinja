@@ -18,7 +18,7 @@ public class SpecialFruit extends GameObject implements IGameObject{
 		break;
 		case 1 : {
 			images[0] = new Image(new File("Resources/pepper2.png").toURI().toString());
-			images[1] = new Image(new File("Resources/pepper2.png").toURI().toString());
+			images[1] = new Image(new File("Resources/spepper2.png").toURI().toString());
 		}
 		break;
 		}

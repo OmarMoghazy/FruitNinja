@@ -63,4 +63,7 @@ public class GameObject {
 				Ylocation = newYLocation;
 		} else  Ylocation += 7;
 	}
+	public void slice() {
+		isSliced =true;
+	}
 }
