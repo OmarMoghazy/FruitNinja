@@ -154,7 +154,10 @@ public class GameController implements Initializable {
 	public void reset(ActionEvent e) throws IOException {
 		Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
 		Parent root = FXMLLoader.load(getClass().getResource("Game.fxml"));
-		Scene scene = new Scene(root, 1000, 552);
+		gameActions.setScore(0);
+		gameActions.setLives(0);
+		gameActions.setTime(0);
+		Scene scene = new Scene(root, 800, 600);
 		window.setScene(scene);
 		window.show();
 	}
