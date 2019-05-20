@@ -1,7 +1,6 @@
 package misc;
 
 import gameObjects.*;
-import interfaces.IGameObject;
 
 public class GameObjectFactory {
 	public static GameObject createObject() {

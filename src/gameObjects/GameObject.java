@@ -2,10 +2,8 @@ package gameObjects;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import misc.ObjectType;
 
 public class GameObject {
-	protected final ObjectType objectType = ObjectType.DANGEROUS_BOMB;
 	boolean isSliced = false;
 	double Xlocation;
 	double Ylocation;
@@ -16,10 +14,6 @@ public class GameObject {
 	double acceleration = -0.00001;
 	double currentVelocity;
 	public boolean hasBeenSliced = false;
-
-	public ObjectType getObjectType() {
-		return objectType;
-	}
 
 	public double getXlocation() {
 		return Xlocation;

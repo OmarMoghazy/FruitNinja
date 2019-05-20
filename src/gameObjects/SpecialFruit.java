@@ -51,4 +51,9 @@ public class SpecialFruit extends GameObject implements IGameObject{
 		
 	}
 
+	@Override
+	public ObjectType getObjectType() {
+		return ObjectType.SPECIAL_FRUIT;
+	}
+
 }
