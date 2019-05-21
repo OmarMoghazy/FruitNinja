@@ -16,7 +16,7 @@ public class GameActions implements IGameActions {
 	private int score = 0;
 	private int lives = 3;
 	private int time = 0;
-	private static Difficulty difficulty;
+	private static Difficulty difficulty = Difficulty.EASY;
 	ArrayList<GameObject> toBeDeleted = new ArrayList<GameObject>();
 	
 	// Singleton
@@ -30,14 +30,12 @@ public class GameActions implements IGameActions {
 	} 
 
 	@Override
-	public void createGameObject() {
-		gameObjects.add(GameObjectFactory.createObject());
-	}
+	public void createGameObject() { gameObjects.add(GameObjectFactory.createObject()); }
 
 	@Override
 	public void updateObjectsLocations(GraphicsContext gc) {
 		for (GameObject x : gameObjects) {
-			x.move(0);
+			x.move(0,difficulty);
 			x.render(gc);
 		}
 	}
@@ -50,55 +48,31 @@ public class GameActions implements IGameActions {
 		gameObjects.clear();
 	}
 
-	public ArrayList<GameObject> getGameObjects() {
-		return gameObjects;
-	}
+	public ArrayList<GameObject> getGameObjects() { return gameObjects; }
 
-	public int getScore() {
-		return score;
-	}
+	public int getScore() { return score; }
 
-	public void setScore(int score) {
-		this.score = score;
-	}
+	public void setScore(int score) { this.score = score; }
 
-	public int getTime() {
-		return time;
-	}
+	public int getTime() { return time; }
 
-	public void setTime(int time) {
-		this.time = time;
-	}
+	public void setTime(int time) { this.time = time; }
 
-	public int getLives() {
-		return lives;
-	}
+	public int getLives() { return lives; }
 
-	public void setLives(int lives) {
-		this.lives = lives;
-	}
+	public void setLives(int lives) { this.lives = lives; }
 
-	public void incrementTime() {
-		time++;
-	}
+	public void incrementTime() { time++; }
 
-	public void scorePlusOne() { score++; }
+	private void scorePlusOne() { score++; }
 
-	public void scorePlusFive() {
-		score = score + 5;
-	}
+	private void scorePlusFive() { score = score + 5; }
 
-	public void loseLife() {
-		lives--;
-	}
+	private void loseLife() { lives--; }
 
-	public static Difficulty getDifficulty() {
-		return difficulty;
-	}
+	public static Difficulty getDifficulty() { return difficulty; }
 
-	public static void setDifficulty(Difficulty difficulty) {
-		GameActions.difficulty = difficulty;
-	}
+	public static void setDifficulty(Difficulty difficulty) { GameActions.difficulty = difficulty; }
 
 	public void sliceObject(GameObject gameObject) {
 		gameObject.slice();

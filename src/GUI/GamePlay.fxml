@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="552.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GamePlayController">
+<AnchorPane prefHeight="552.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GamePlayController">
    <children>
       <ImageView fx:id="background" fitHeight="600.0" fitWidth="1000.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
          <image>

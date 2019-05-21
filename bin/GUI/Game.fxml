@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GameController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GameController">
    <children>
       <Canvas fx:id="canvas" height="600.0" onMouseDragged="#onDrag" width="800.0" />
       <Button fx:id="resetButton" layoutX="744.0" layoutY="561.0" mnemonicParsing="false" onAction="#reset" text="reset" AnchorPane.leftAnchor="744.0" AnchorPane.topAnchor="561.0" />
@@ -72,5 +72,6 @@
           <Font name="System Italic" size="15.0" />
        </font>
       </Label>
+      <Button fx:id="backButton" layoutX="696.0" layoutY="561.0" mnemonicParsing="false" onAction="#back" text="back" />
    </children>
 </AnchorPane>
