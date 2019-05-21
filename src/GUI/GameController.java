@@ -61,6 +61,7 @@ public class GameController implements Initializable {
 	GameActions gameActions = GameActions.getInstance();
 	AnimationTimer x;
 	int highscore = 0;
+	public static int flag = 1;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -72,7 +73,12 @@ public class GameController implements Initializable {
 		} catch (FileNotFoundException e) {
 		}
 		highscorelabel.setText(Integer.toString(highscore));
-		gameActions.ResetGame();
+		
+		if(flag == 1)
+			gameActions.ResetGame();
+		else 
+			gameActions.LoadGame();
+		
 		if(GameActions.getDifficulty().equals(Difficulty.EASY)) gamediflabel.setText("Easy");
 		else if(GameActions.getDifficulty().equals(Difficulty.MEDIUM)) gamediflabel.setText("Medium");
 		else gamediflabel.setText("Hard");
@@ -120,6 +126,10 @@ public class GameController implements Initializable {
 			}
 		};
 		x.start();
+	}
+	
+	public void save(ActionEvent e) {
+		gameActions.SaveGame();
 	}
 	
 	public void back(ActionEvent e) {

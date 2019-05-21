@@ -76,6 +76,16 @@ public class MainMenuController implements Initializable {
 		else if (x==2)
 			easybutton(event);
 	}
+	
+	public void loadGame(ActionEvent event) throws IOException {
+		GameController.flag = 0;
+		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		Parent root = FXMLLoader.load(getClass().getResource("Game.fxml"));
+		GameController.flag = 1;
+		Scene scene = new Scene(root, 800, 600);
+		window.setScene(scene);
+		window.show();
+	}
 
 
 }
