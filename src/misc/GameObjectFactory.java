@@ -6,8 +6,8 @@ public class GameObjectFactory {
 	public static GameObject createObject() {
 		int x  = (int)( Math.random() * 20 );
 		if(x < 14) return new RegularFruit();
-		else if(x < 15) return new SpecialFruit();
-		else if(x < 18) return new DangerousBomb();
+		else if(x < 17) return new SpecialFruit();
+		else if(x < 19) return new DangerousBomb();
 		else if(x < 20) return new FatalBomb();
 		return null;
 	}

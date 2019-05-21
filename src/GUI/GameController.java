@@ -1,9 +1,15 @@
 package GUI;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
+
 import controller.GameActions;
 import gameObjects.FatalBomb;
 import javafx.animation.AnimationTimer;
@@ -56,9 +62,18 @@ public class GameController implements Initializable {
 	Timeline timeline;
 	GameActions gameActions = GameActions.getInstance();
 	AnimationTimer x;
+	int highscore = 0;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		File file = new File("Highscore.txt");
+		try {
+			Scanner scanner = new Scanner(file);
+			highscore = Integer.parseInt(scanner.nextLine());
+			scanner.close();
+		} catch (FileNotFoundException e) {
+		}
+		highscorelabel.setText(Integer.toString(highscore));
 		gameActions.ResetGame();
 		if(GameActions.getDifficulty().equals(Difficulty.EASY)) gamediflabel.setText("Easy");
 		else if(GameActions.getDifficulty().equals(Difficulty.MEDIUM)) gamediflabel.setText("Medium");
@@ -95,11 +110,13 @@ public class GameController implements Initializable {
 							&& !gameActions.getGameObjects().get(i).isSliced()
 							&& (mouseY >= gameActions.getGameObjects().get(i).getYlocation()
 									&& mouseY <= gameActions.getGameObjects().get(i).getYlocation() + 75)) {
-						if(gameActions.getGameObjects().get(i) instanceof FatalBomb) loseGame();
+						if(gameActions.getGameObjects().get(i) instanceof FatalBomb)
+							loseGame();
 						else gameActions.sliceObject(gameActions.getGameObjects().get(i));
 					}
 					gameActions.checkFallingObjects();
-					if(gameActions.getLives() == 0) loseGame();
+					if(gameActions.getLives() == 0)
+						loseGame();
 					gameActions.updateObjectsLocations(gc);	
 				}
 			}
@@ -131,9 +148,23 @@ public class GameController implements Initializable {
 		System.out.println("the snooze u loose");
 		x.stop();
 		timeline.stop();
-		GameActions.setDifficulty(Difficulty.HARD);
 		Alerts.textAlert("u kiding meeeee", "u loose");
-		// resetButton.fire();
+		if(gameActions.getScore() > highscore) {
+			highscore = gameActions.getScore();
+			highscorelabel.setText(Integer.toString(highscore));
+			FileWriter fw;
+			try {
+				fw = new FileWriter("Highscore.txt");
+				fw.write(Integer.toString(gameActions.getScore()));    
+		           fw.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}    
+	            
+			Alerts.textAlert("Congratulations!","New Highsore!");
+			
+			}
 	}
 
 	@FXML
@@ -144,6 +175,7 @@ public class GameController implements Initializable {
 
 	@FXML
 	public void reset(ActionEvent e) throws IOException {
+		highscorelabel.setText(Integer.toString(highscore));
 		gameActions.ResetGame();
 		gameActions.updateObjectsLocations(gc);
 		x.start();
