@@ -124,7 +124,7 @@ public class GameController implements Initializable {
 		x.stop();
 		timeline.stop();
 		GameActions.setDifficulty(Difficulty.HARD);
-		Alerts.textAlert("u kiding meeeee", "u loose");
+		Alerts.imageAlert("the snooze u loose", "Resources/gaemo.png");
 		// resetButton.fire();
 	}
 
