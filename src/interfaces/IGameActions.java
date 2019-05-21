@@ -8,7 +8,6 @@ public interface IGameActions {
 	 * @return created game object
 	 */
 	public void createGameObject();
-
 	/*
 	 * update moving objects locations
 	 */
