@@ -18,6 +18,4 @@ public class MainClass extends Application{
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
-	
-
 }

@@ -1,5 +1,6 @@
 package GUI;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,15 +14,19 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import misc.Difficulty;
 
 public class MainMenuController implements Initializable {
 
+	@FXML private ImageView mainMenu;
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-		
+		Image image = new Image(new File("Resources/MainMenu.png").toURI().toString());
+		mainMenu.setImage(image);
 	}
 	@FXML private Button exitbutton;
 	@FXML private Button hardbutton;
@@ -29,10 +34,7 @@ public class MainMenuController implements Initializable {
 	@FXML private Button easybutton;
 
 	@FXML
-	public void exitbutton(ActionEvent event) throws IOException{
-
-		System.exit(0);
-	}
+	public void exitbutton(ActionEvent event) throws IOException{ System.exit(0); }
 
     @FXML
 	public void easybutton(ActionEvent event) throws IOException {
@@ -83,6 +85,4 @@ public class MainMenuController implements Initializable {
 		window.setScene(scene);
 		window.show();
 	}
-
-
 }

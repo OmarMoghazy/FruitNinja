@@ -26,7 +26,7 @@ public class Alerts {
 		Label alertLabel = new Label(message);
 		layout2.getChildren().addAll(alertLabel, closeAlert);
 		layout2.setAlignment(Pos.CENTER);
-		Scene alertScene = new Scene(layout2, 200, 200);
+		Scene alertScene = new Scene(layout2, 250, 200);
 		window2.setScene(alertScene);
 		window2.show();
 	}

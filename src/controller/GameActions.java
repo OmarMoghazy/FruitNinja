@@ -31,9 +31,7 @@ public class GameActions implements IGameActions {
 	// Singleton
 	private static GameActions gameActions;
 
-	private GameActions() {
-		
-	}
+	private GameActions() { }
 
 	public static synchronized GameActions getInstance() {
 		if (gameActions == null)
@@ -52,7 +50,6 @@ public class GameActions implements IGameActions {
 			x.move(0, difficulty);
 			x.render(gc);
 		}
-
 	}
 
 	@Override
@@ -95,10 +92,7 @@ public class GameActions implements IGameActions {
 		time++;
 	}
 
-	public void scorePlusOne() {
-		score++;
-
-	}
+	public void scorePlusOne() { score++; }
 
 	public void scorePlusFive() {
 		score = score + 5;
@@ -151,9 +145,4 @@ public class GameActions implements IGameActions {
 		remote.setCommand(loadCommand);
 		remote.pressButton();
 	}
-
 }
-
-//reset game
-//labels
-//special fruit

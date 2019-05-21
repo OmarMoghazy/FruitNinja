@@ -146,7 +146,7 @@ public class GameController implements Initializable {
 	private void loseGame() {
 		animationTimer.stop();
 		timeline.stop();
-		Alerts.textAlert("u kiding meeeee", "u loose");
+		Alerts.imageAlert("u kiding meeeee", "Resources/gaemo.png");
 		if(GameActions.getScore() > highscore) {
 			highscore = GameActions.getScore();
 			highscorelabel.setText(Integer.toString(highscore));
