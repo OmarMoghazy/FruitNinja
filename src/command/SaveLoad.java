@@ -20,8 +20,15 @@ import org.xml.sax.SAXException;
 
 import controller.GameActions;
 import misc.Difficulty;
+import misc.SaveMemento;
 
 public class SaveLoad {
+	SaveMemento saveMemento;
+	
+	public void setMemento(SaveMemento saveMemento) {
+		this.saveMemento = saveMemento;
+	}
+	
 	public void save() {
 		 try {
 	            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -38,13 +45,13 @@ public class SaveLoad {
 	 
 	            //Diff.appendChild();
 	 
-	            Diff.appendChild(document.createTextNode(GameActions.getDifficulty() +" "));
+	            Diff.appendChild(document.createTextNode(saveMemento.getDifficulty() +" "));
 	            Diff.appendChild(Score);
-	            Score.appendChild(document.createTextNode(String.valueOf(GameActions.getScore()) + " "));
+	            Score.appendChild(document.createTextNode(String.valueOf(saveMemento.getScore()) + " "));
 	            Diff.appendChild(Lives);
-	            Lives.appendChild(document.createTextNode(String.valueOf(GameActions.getLives()) + " "));
+	            Lives.appendChild(document.createTextNode(String.valueOf(saveMemento.getLives()) + " "));
 	            Diff.appendChild(Time);
-	            Time.appendChild(document.createTextNode(String.valueOf(GameActions.getTime()) + " "));
+	            Time.appendChild(document.createTextNode(String.valueOf(saveMemento.getTime()) + " "));
 	 
 	            TransformerFactory transformerFactory = TransformerFactory.newInstance();
 	            Transformer transformer = transformerFactory.newTransformer();

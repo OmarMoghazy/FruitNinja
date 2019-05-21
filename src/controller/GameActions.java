@@ -3,9 +3,9 @@ package controller;
 import javafx.scene.canvas.GraphicsContext;
 import misc.Difficulty;
 import misc.GameObjectFactory;
+import misc.SaveMemento;
 
 import java.util.ArrayList;
-
 
 import command.Command;
 import command.Remote;
@@ -24,21 +24,22 @@ public class GameActions implements IGameActions {
 	static int time = 0;
 	static Difficulty difficulty = Difficulty.EASY;
 	ArrayList<GameObject> toBeDeleted = new ArrayList<GameObject>();
-	
 	SaveLoad saveLoad = new SaveLoad();
 	Remote remote = new Remote();
 	Command SaveCommand = new SaveCommand(saveLoad);
 	Command loadCommand = new LoadCommand(saveLoad);
-	
+
 	// Singleton
-	private static GameActions gameActions; 											
+	private static GameActions gameActions;
+
 	private GameActions() {
-	} 
+	}
+
 	public static synchronized GameActions getInstance() {
-		if (gameActions == null) 
-			gameActions = new GameActions(); 
-		return gameActions; 
-	} 
+		if (gameActions == null)
+			gameActions = new GameActions();
+		return gameActions;
+	}
 
 	@Override
 	public void createGameObject() {
@@ -48,7 +49,7 @@ public class GameActions implements IGameActions {
 	@Override
 	public void updateObjectsLocations(GraphicsContext gc) {
 		for (GameObject x : gameObjects) {
-			x.move(0,difficulty);
+			x.move(0, difficulty);
 			x.render(gc);
 		}
 
@@ -106,18 +107,25 @@ public class GameActions implements IGameActions {
 	public void loseLife() {
 		lives--;
 	}
+
 	public static Difficulty getDifficulty() {
 		return difficulty;
 	}
+
 	public static void setDifficulty(Difficulty difficulty) {
 		GameActions.difficulty = difficulty;
 	}
+
 	public void sliceObject(GameObject gameObject) {
 		gameObject.slice();
-		if(gameObject instanceof RegularFruit) scorePlusOne();
-		else if(gameObject instanceof SpecialFruit) scorePlusFive();
-		else if(gameObject instanceof DangerousBomb) loseLife();
+		if (gameObject instanceof RegularFruit)
+			scorePlusOne();
+		else if (gameObject instanceof SpecialFruit)
+			scorePlusFive();
+		else if (gameObject instanceof DangerousBomb)
+			loseLife();
 	}
+
 	public void checkFallingObjects() {
 		for (GameObject x : gameObjects) {
 			if (x.hasMovedOffScreen()) {
@@ -131,16 +139,18 @@ public class GameActions implements IGameActions {
 		gameActions.getGameObjects().removeAll(toBeDeleted);
 		toBeDeleted.clear();
 	}
-	
+
 	public void SaveGame() {
-       remote.setCommand(SaveCommand);
-       remote.pressButton();
-    }
- 
-    public void LoadGame(){
-    	remote.setCommand(loadCommand);
-    	remote.pressButton();
-    }
+		SaveMemento saveMemento = new SaveMemento(GameActions.getScore(), GameActions.getLives(), GameActions.getTime(), GameActions.getDifficulty());
+		saveLoad.setMemento(saveMemento);
+		remote.setCommand(SaveCommand);
+		remote.pressButton();
+	}
+
+	public void LoadGame() {
+		remote.setCommand(loadCommand);
+		remote.pressButton();
+	}
 
 }
 

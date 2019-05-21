@@ -60,7 +60,7 @@ public class GameController implements Initializable {
 	GraphicsContext gc;
 	Timeline timeline;
 	GameActions gameActions = GameActions.getInstance();
-	AnimationTimer x;
+	AnimationTimer animationTimer;
 	int highscore = 0;
 	public static int flag = 1;
 
@@ -91,7 +91,7 @@ public class GameController implements Initializable {
 		}));
 		timeline.setCycleCount(Timeline.INDEFINITE);
 		timeline.play();
-		x = new AnimationTimer() {
+		animationTimer = new AnimationTimer() {
 			@Override
 			public void handle(long arg0) {
 				
@@ -128,9 +128,7 @@ public class GameController implements Initializable {
 				if(GameActions.getScore() > highscore) highscorelabel.setText(Integer.toString(GameActions.getScore()));
 			}
 		};
-		
-		
-		x.start();
+		animationTimer.start();
 	}
 	
 	public void save(ActionEvent e) {
@@ -138,7 +136,7 @@ public class GameController implements Initializable {
 	}
 	
 	public void back(ActionEvent e) {
-		x.stop();
+		animationTimer.stop();
 		timeline.stop();
 		Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
 		try {
@@ -146,19 +144,17 @@ public class GameController implements Initializable {
 			Scene scene = new Scene(root);
 			window.setScene(scene);
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 			try {
 				reset(null);
 			} catch (IOException e2) {
-				// TODO Auto-generated catch block
 				e2.printStackTrace();
 			}
 		}
 	}
 
 	private void loseGame() {
-		x.stop();
+		animationTimer.stop();
 		timeline.stop();
 		Alerts.textAlert("u kiding meeeee", "u loose");
 		if(GameActions.getScore() > highscore) {
@@ -170,7 +166,6 @@ public class GameController implements Initializable {
 				fw.write(Integer.toString(GameActions.getScore()));    
 		           fw.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}    
 	            
@@ -190,7 +185,7 @@ public class GameController implements Initializable {
 		highscorelabel.setText(Integer.toString(highscore));
 		gameActions.ResetGame();
 		gameActions.updateObjectsLocations(gc);
-		x.start();
+		animationTimer.start();
 		timeline.play();
 	}
 }
