@@ -16,25 +16,21 @@ public class GameObject {
 	double currentVelocity;
 	public boolean hasBeenSliced = false;
 
+<<<<<<< HEAD
 	public double getXlocation() {
 		return Xlocation;
 	}
+=======
+	public double getXlocation() { return Xlocation; }
 
-	public double getYlocation() {
-		return Ylocation;
-	}
+	public double getYlocation() { return Ylocation; }
+>>>>>>> 1d7bbc771fcbbeff8735b7e73f724de3165f9ff0
 
-	public Boolean hasMovedOffScreen() {
-		return  Ylocation >= 600;
-	}
+	public Boolean hasMovedOffScreen() { return  Ylocation >= 600; }
 
-	public Boolean isSliced() {
-		return isSliced;
-	}
+	public Boolean isSliced() { return isSliced; }
 
-	public Image[] getImages() {
-		return images;
-	}
+	public Image[] getImages() { return images; }
 
 	public void render(GraphicsContext gc) {
 		if (isSliced)

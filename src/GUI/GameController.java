@@ -8,10 +8,13 @@ import java.io.IOException;
 import java.io.Writer;
 import java.net.URL;
 import java.util.ResourceBundle;
+<<<<<<< HEAD
 import java.util.Scanner;
 
 import controller.GameActions;
 import gameObjects.FatalBomb;
+=======
+>>>>>>> 1d7bbc771fcbbeff8735b7e73f724de3165f9ff0
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -31,33 +34,28 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
+import controller.GameActions;
+import gameObjects.FatalBomb;
 import misc.Alerts;
 import misc.Difficulty;
 
 public class GameController implements Initializable {
 
-	@FXML
-	Canvas canvas;
-	@FXML
-	Label scorelabel;
-	@FXML
-	Label highscorelabel;
-	@FXML
-	Label gamediflabel;
-	@FXML
-	Label timeLabel;
-	@FXML
-	ImageView life1;
-	@FXML
-	ImageView life2;
-	@FXML
-	ImageView life3;
-	@FXML
-	Button resetButton;
+	@FXML private Canvas canvas;
+	@FXML private Label scorelabel;
+	@FXML private Label highscorelabel;
+	@FXML private Label gamediflabel;
+	@FXML private Label timeLabel;
+	@FXML private ImageView life1;
+	@FXML private ImageView life2;
+	@FXML private ImageView life3;
+	@FXML private Button resetButton;
 
-	double mouseX;
-	double mouseY;
+	private double mouseX;
+	private double mouseY;
 
+<<<<<<< HEAD
 	GraphicsContext gc;
 	Timeline timeline;
 	GameActions gameActions = GameActions.getInstance();
@@ -74,6 +72,15 @@ public class GameController implements Initializable {
 		} catch (FileNotFoundException e) {
 		}
 		highscorelabel.setText(Integer.toString(highscore));
+=======
+	private GraphicsContext gc;
+	private Timeline timeline;
+	private GameActions gameActions = GameActions.getInstance();
+	private AnimationTimer x;
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+>>>>>>> 1d7bbc771fcbbeff8735b7e73f724de3165f9ff0
 		gameActions.ResetGame();
 		if(GameActions.getDifficulty().equals(Difficulty.EASY)) gamediflabel.setText("Easy");
 		else if(GameActions.getDifficulty().equals(Difficulty.MEDIUM)) gamediflabel.setText("Medium");
@@ -110,6 +117,7 @@ public class GameController implements Initializable {
 							&& !gameActions.getGameObjects().get(i).isSliced()
 							&& (mouseY >= gameActions.getGameObjects().get(i).getYlocation()
 									&& mouseY <= gameActions.getGameObjects().get(i).getYlocation() + 75)) {
+<<<<<<< HEAD
 						if(gameActions.getGameObjects().get(i) instanceof FatalBomb)
 							loseGame();
 						else gameActions.sliceObject(gameActions.getGameObjects().get(i));
@@ -117,6 +125,13 @@ public class GameController implements Initializable {
 					gameActions.checkFallingObjects();
 					if(gameActions.getLives() == 0)
 						loseGame();
+=======
+						if(gameActions.getGameObjects().get(i) instanceof FatalBomb) loseGame();
+						else gameActions.sliceObject(gameActions.getGameObjects().get(i));
+					}
+					gameActions.checkFallingObjects();
+					if(gameActions.getLives() == 0) loseGame();
+>>>>>>> 1d7bbc771fcbbeff8735b7e73f724de3165f9ff0
 					gameActions.updateObjectsLocations(gc);	
 				}
 			}
@@ -148,6 +163,7 @@ public class GameController implements Initializable {
 		System.out.println("the snooze u loose");
 		x.stop();
 		timeline.stop();
+<<<<<<< HEAD
 		Alerts.textAlert("u kiding meeeee", "u loose");
 		if(gameActions.getScore() > highscore) {
 			highscore = gameActions.getScore();
@@ -165,6 +181,11 @@ public class GameController implements Initializable {
 			Alerts.textAlert("Congratulations!","New Highsore!");
 			
 			}
+=======
+		GameActions.setDifficulty(Difficulty.HARD);
+		Alerts.imageAlert("the snooze u loose", "Resources/gaemo.png");
+		// resetButton.fire();
+>>>>>>> 1d7bbc771fcbbeff8735b7e73f724de3165f9ff0
 	}
 
 	@FXML
@@ -175,7 +196,10 @@ public class GameController implements Initializable {
 
 	@FXML
 	public void reset(ActionEvent e) throws IOException {
+<<<<<<< HEAD
 		highscorelabel.setText(Integer.toString(highscore));
+=======
+>>>>>>> 1d7bbc771fcbbeff8735b7e73f724de3165f9ff0
 		gameActions.ResetGame();
 		gameActions.updateObjectsLocations(gc);
 		x.start();

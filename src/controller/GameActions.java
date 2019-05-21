@@ -30,9 +30,7 @@ public class GameActions implements IGameActions {
 	} 
 
 	@Override
-	public void createGameObject() {
-		gameObjects.add(GameObjectFactory.createObject());
-	}
+	public void createGameObject() { gameObjects.add(GameObjectFactory.createObject()); }
 
 	@Override
 	public void updateObjectsLocations(GraphicsContext gc) {
@@ -40,7 +38,6 @@ public class GameActions implements IGameActions {
 			x.move(0,difficulty);
 			x.render(gc);
 		}
-
 	}
 
 	@Override
@@ -51,47 +48,29 @@ public class GameActions implements IGameActions {
 		gameObjects.clear();
 	}
 
-	public ArrayList<GameObject> getGameObjects() {
-		return gameObjects;
-	}
+	public ArrayList<GameObject> getGameObjects() { return gameObjects; }
 
-	public int getScore() {
-		return score;
-	}
+	public int getScore() { return score; }
 
-	public void setScore(int score) {
-		this.score = score;
-	}
+	public void setScore(int score) { this.score = score; }
 
-	public int getTime() {
-		return time;
-	}
+	public int getTime() { return time; }
 
-	public void setTime(int time) {
-		this.time = time;
-	}
+	public void setTime(int time) { this.time = time; }
 
-	public int getLives() {
-		return lives;
-	}
+	public int getLives() { return lives; }
 
-	public void setLives(int lives) {
-		this.lives = lives;
-	}
+	public void setLives(int lives) { this.lives = lives; }
 
-	public void incrementTime() {
-		time++;
-	}
+	public void incrementTime() { time++; }
 
-	public void scorePlusOne() {
-		score++;
+	private void scorePlusOne() { score++; }
 
-	}
+	private void scorePlusFive() { score = score + 5; }
 
-	public void scorePlusFive() {
-		score = score + 5;
-	}
+	private void loseLife() { lives--; }
 
+<<<<<<< HEAD
 	public void loseLife() {
 		lives--;
 	}
@@ -120,9 +99,29 @@ public class GameActions implements IGameActions {
 		gameActions.getGameObjects().removeAll(toBeDeleted);
 		toBeDeleted.clear();
 	}
+=======
+	public static Difficulty getDifficulty() { return difficulty; }
+>>>>>>> 1d7bbc771fcbbeff8735b7e73f724de3165f9ff0
 
+	public static void setDifficulty(Difficulty difficulty) { GameActions.difficulty = difficulty; }
+
+	public void sliceObject(GameObject gameObject) {
+		gameObject.slice();
+		if(gameObject instanceof RegularFruit) scorePlusOne();
+		else if(gameObject instanceof SpecialFruit) scorePlusFive();
+		else if(gameObject instanceof DangerousBomb) loseLife();
+	}
+	public void checkFallingObjects() {
+		for (GameObject x : gameObjects) {
+			if (x.hasMovedOffScreen()) {
+				toBeDeleted.add(x);
+				if (!x.isSliced())
+					if (x instanceof RegularFruit || x instanceof SpecialFruit) {
+						loseLife();
+					}
+			}
+		}
+		gameActions.getGameObjects().removeAll(toBeDeleted);
+		toBeDeleted.clear();
+	}
 }
-
-//reset game
-//labels
-//special fruit

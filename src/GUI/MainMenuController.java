@@ -3,8 +3,11 @@ package GUI;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+<<<<<<< HEAD
 
 import controller.GameActions;
+=======
+>>>>>>> 1d7bbc771fcbbeff8735b7e73f724de3165f9ff0
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,20 +19,20 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import misc.Difficulty;
 
-public class MainMenuController implements Initializable {
+import controller.GameActions;
+import misc.Difficulty;
 
+public class MainMenuController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
 	}
+
 	@FXML private Button exitbutton;
 	@FXML private Button hardbutton;
 	@FXML private Button mediumbutton;
 	@FXML private Button easybutton;
-
-
 
 	@FXML
 	public void exitbutton(ActionEvent event) throws IOException{
@@ -76,6 +79,4 @@ public class MainMenuController implements Initializable {
 		else if (x==2)
 			easybutton(event);
 	}
-
-
 }
