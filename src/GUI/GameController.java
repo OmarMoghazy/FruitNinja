@@ -11,6 +11,8 @@ import java.util.Scanner;
 import controller.GameActions;
 import gameObjects.FatalBomb;
 import gameObjects.GameObject;
+import gameObjects.RegularFruit;
+import gameObjects.SpecialFruit;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -28,6 +30,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import misc.Alerts;
@@ -35,18 +39,15 @@ import misc.Difficulty;
 
 public class GameController implements Initializable {
 
+	//private MediaPlayer slice = new MediaPlayer(new Media(getClass().getResource("/nick.mp3").toString()));
+	//private MediaPlayer gameOver = new MediaPlayer(new Media(getClass().getResource("/nick.mp3").toString()));
+
 	@FXML	private Canvas canvas;
-	@FXML	private Label scorelabel;
-	@FXML	private Label highscorelabel;
-	@FXML	private Label gamediflabel;
-	@FXML	private Label timeLabel;
-	@FXML	private ImageView life1;
-	@FXML	private ImageView life2;
-	@FXML	private ImageView life3;
+	@FXML	private Label scorelabel, highscorelabel, gamediflabel, timeLabel;
+	@FXML	private ImageView life1, life2, life3;
 	@FXML	private Button resetButton;
 
-	private double mouseX;
-	private double mouseY;
+	private double mouseX, mouseY;
 
 	private GraphicsContext gc;
 	private Timeline timeline;
@@ -54,11 +55,13 @@ public class GameController implements Initializable {
 	private AnimationTimer animationTimer;
 	private int highscore = 0;
 	public static int flag = 1;
+	private int c = 0;
+
+	private Image life = new Image(new File("Resources/lives2.png").toURI().toString());
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
-		Image life = new Image(new File("Resources/lives2.png").toURI().toString());
+
 		life1.setImage(life);
 		life2.setImage(life);
 		life3.setImage(life);
@@ -72,7 +75,10 @@ public class GameController implements Initializable {
 		highscorelabel.setText(Integer.toString(highscore));
 		
 		if (flag == 1)	gameActions.ResetGame();
-		else gameActions.loadGame();
+		else {
+			gameActions.ResetGame();
+			gameActions.loadGame();
+		}
 		
 		if(GameActions.getDifficulty().equals(Difficulty.EASY)) gamediflabel.setText("Easy");
 		else if(GameActions.getDifficulty().equals(Difficulty.MEDIUM)) gamediflabel.setText("Medium");
@@ -91,7 +97,8 @@ public class GameController implements Initializable {
 				
 				gc.clearRect(0, 0, 800, 600);
 				gc.drawImage(new Image(new File("Resources/bg.png").toURI().toString()), 0, 0, 800, 600);
-				
+
+				//has to be there for life bonus
 				life1.setVisible(true);
 				life2.setVisible(true);
 				life3.setVisible(true);
@@ -99,22 +106,11 @@ public class GameController implements Initializable {
 				if (GameActions.getLives() < 3)	life1.setVisible(false);
 				if (GameActions.getLives() < 2)	life2.setVisible(false);	
 				if (GameActions.getLives() < 1)	life3.setVisible(false);
-				
-				for (int i = 0; i < gameActions.getGameObjects().size(); i++) {
-				
-					if ((mouseX >= gameActions.getGameObjects().get(i).getXlocation()
-					
-							&& mouseX <= gameActions.getGameObjects().get(i).getXlocation() + 75)
-							&& !gameActions.getGameObjects().get(i).isSliced()
-							&& (mouseY >= gameActions.getGameObjects().get(i).getYlocation()
-									&& mouseY <= gameActions.getGameObjects().get(i).getYlocation() + 75)) {
-						if(gameActions.getGameObjects().get(i) instanceof FatalBomb)	loseGame();
-						else gameActions.sliceObject(gameActions.getGameObjects().get(i));
-					}
-					gameActions.checkFallingObjects();
-					if(GameActions.getLives() == 0)	loseGame();
-					gameActions.updateObjectsLocations(gc);	
-				}
+
+				gameActions.checkFallingObjects();
+				if(GameActions.getLives() == 0)	loseGame();
+				gameActions.updateObjectsLocations(gc);
+
 				scorelabel.setText(Integer.toString(GameActions.getScore()));
 				timeLabel.setText(Integer.toString(GameActions.getTime()));
 				if(GameActions.getScore() > highscore) highscorelabel.setText(Integer.toString(GameActions.getScore()));
@@ -157,17 +153,40 @@ public class GameController implements Initializable {
 		           fw.close();
 			} catch (IOException e) {
 				e.printStackTrace();
-			}    
-	            
-			Alerts.textAlert("Congratulations!","New Highsore!");
-			
 			}
+			Alerts.textAlert("Congratulations!","New Highsore!");
+		}
 	}
 
 	@FXML
 	public void onDrag(MouseEvent event) {
 		mouseX = event.getX();
 		mouseY = event.getY();
+
+		for (int i = 0; i < gameActions.getGameObjects().size(); i++) {
+			if ((mouseX >= gameActions.getGameObjects().get(i).getXlocation()
+					&& mouseX <= gameActions.getGameObjects().get(i).getXlocation() + 75)
+					&& !gameActions.getGameObjects().get(i).isSliced()
+					&& (mouseY >= gameActions.getGameObjects().get(i).getYlocation()
+					&& mouseY <= gameActions.getGameObjects().get(i).getYlocation() + 75)) {
+				if(gameActions.getGameObjects().get(i) instanceof FatalBomb)	loseGame();
+				else if(gameActions.getGameObjects().get(i) instanceof SpecialFruit){
+					gameActions.sliceObject(gameActions.getGameObjects().get(i));
+					gameActions.lifeBonus();
+					/*
+					for (int j = 0; j < gameActions.getGameObjects().size(); j++){
+						if (gameActions.getGameObjects().get(i) instanceof RegularFruit)
+							gameActions.sliceObject(gameActions.getGameObjects().get(i));
+					}*/
+				}
+				else gameActions.sliceObject(gameActions.getGameObjects().get(i));
+				c++;
+			}
+		}
+		if (c>=4) gameActions.combo4();
+		else if (c>=3) gameActions.combo3();
+		else if (c>=2) gameActions.combo2();
+		c=0;
 	}
 
 	@FXML

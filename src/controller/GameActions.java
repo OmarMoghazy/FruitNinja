@@ -94,6 +94,12 @@ public class GameActions implements IGameActions {
 
 	public void scorePlusOne() { score++; }
 
+	public void combo2() { score = score * 2; }
+
+	public void combo3() { score = score * 3; }
+
+	public void combo4() { score = score * 4; }
+
 	public void scorePlusFive() {
 		score = score + 5;
 	}
@@ -101,6 +107,10 @@ public class GameActions implements IGameActions {
 	public void loseLife() {
 		lives--;
 	}
+
+	public void timeBonus(){ if (time >=10 ) time = time -10; }
+
+	public void lifeBonus(){ if(lives < 3) lives = lives + 1;}
 
 	public static Difficulty getDifficulty() {
 		return difficulty;

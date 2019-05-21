@@ -16,6 +16,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import misc.Difficulty;
 
@@ -23,15 +25,16 @@ public class MainMenuController implements Initializable {
 
 	@FXML private ImageView mainMenu;
 
+	Image image = new Image(new File("Resources/MainMenu.png").toURI().toString());
+
+//	private MediaPlayer mediaPlayer = new MediaPlayer(new Media(getClass().getResource("/nick.mp3").toString()));
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		Image image = new Image(new File("Resources/MainMenu.png").toURI().toString());
 		mainMenu.setImage(image);
 	}
-	@FXML private Button exitbutton;
-	@FXML private Button hardbutton;
-	@FXML private Button mediumbutton;
-	@FXML private Button easybutton;
+	@FXML
+	private Button exitbutton, hardbutton, mediumbutton, easybutton;
 
 	@FXML
 	public void exitbutton(ActionEvent event) throws IOException{ System.exit(0); }
