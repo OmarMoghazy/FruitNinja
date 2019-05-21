@@ -57,19 +57,22 @@ public class GameController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
+		Image life = new Image(new File("Resources/lives2.png").toURI().toString());
+		life1.setImage(life);
+		life2.setImage(life);
+		life3.setImage(life);
+		
 		File file = new File("Highscore.txt");
 		try {
 			Scanner scanner = new Scanner(file);
 			highscore = Integer.parseInt(scanner.nextLine());
 			scanner.close();
-		} catch (FileNotFoundException e) {
-		}
+		} catch (FileNotFoundException e) {}
 		highscorelabel.setText(Integer.toString(highscore));
 		
-		if(flag == 1)
-			gameActions.ResetGame();
-		else 
-			gameActions.loadGame();
+		if (flag == 1)	gameActions.ResetGame();
+		else gameActions.loadGame();
 		
 		if(GameActions.getDifficulty().equals(Difficulty.EASY)) gamediflabel.setText("Easy");
 		else if(GameActions.getDifficulty().equals(Difficulty.MEDIUM)) gamediflabel.setText("Medium");
@@ -105,13 +108,11 @@ public class GameController implements Initializable {
 							&& !gameActions.getGameObjects().get(i).isSliced()
 							&& (mouseY >= gameActions.getGameObjects().get(i).getYlocation()
 									&& mouseY <= gameActions.getGameObjects().get(i).getYlocation() + 75)) {
-						if(gameActions.getGameObjects().get(i) instanceof FatalBomb)
-							loseGame();
+						if(gameActions.getGameObjects().get(i) instanceof FatalBomb)	loseGame();
 						else gameActions.sliceObject(gameActions.getGameObjects().get(i));
 					}
 					gameActions.checkFallingObjects();
-					if(GameActions.getLives() == 0)
-						loseGame();
+					if(GameActions.getLives() == 0)	loseGame();
 					gameActions.updateObjectsLocations(gc);	
 				}
 				scorelabel.setText(Integer.toString(GameActions.getScore()));
@@ -122,9 +123,7 @@ public class GameController implements Initializable {
 		animationTimer.start();
 	}
 	
-	public void save(ActionEvent e) {
-		gameActions.saveGame();
-	}
+	public void save(ActionEvent e) { gameActions.saveGame(); }
 	
 	public void back(ActionEvent e) {
 		animationTimer.stop();
