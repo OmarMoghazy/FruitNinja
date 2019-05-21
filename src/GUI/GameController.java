@@ -87,7 +87,7 @@ public class GameController implements Initializable {
 		timeline = new Timeline(new KeyFrame(Duration.seconds(1), actionEvent -> {
 			gameActions.createGameObject();
 			gameActions.incrementTime();
-			if(gameActions.getTime() % 20 == 0) GameObject.speed += 1.5;
+			if(GameActions.getTime() % 20 == 0) GameObject.speed += 1.5;
 		}));
 		timeline.setCycleCount(Timeline.INDEFINITE);
 		timeline.play();
@@ -102,9 +102,9 @@ public class GameController implements Initializable {
 				life2.setVisible(true);
 				life3.setVisible(true);
 				
-				if (gameActions.getLives() < 3)	life1.setVisible(false);
-				if (gameActions.getLives() < 2)	life2.setVisible(false);	
-				if (gameActions.getLives() < 1)	life3.setVisible(false);
+				if (GameActions.getLives() < 3)	life1.setVisible(false);
+				if (GameActions.getLives() < 2)	life2.setVisible(false);	
+				if (GameActions.getLives() < 1)	life3.setVisible(false);
 				
 				for (int i = 0; i < gameActions.getGameObjects().size(); i++) {
 				
@@ -119,13 +119,13 @@ public class GameController implements Initializable {
 						else gameActions.sliceObject(gameActions.getGameObjects().get(i));
 					}
 					gameActions.checkFallingObjects();
-					if(gameActions.getLives() == 0)
+					if(GameActions.getLives() == 0)
 						loseGame();
 					gameActions.updateObjectsLocations(gc);	
 				}
-				scorelabel.setText(Integer.toString(gameActions.getScore()));
-				timeLabel.setText(Integer.toString(gameActions.getTime()));
-				if(gameActions.getScore() > highscore) highscorelabel.setText(Integer.toString(gameActions.getScore()));
+				scorelabel.setText(Integer.toString(GameActions.getScore()));
+				timeLabel.setText(Integer.toString(GameActions.getTime()));
+				if(GameActions.getScore() > highscore) highscorelabel.setText(Integer.toString(GameActions.getScore()));
 			}
 		};
 		
@@ -161,13 +161,13 @@ public class GameController implements Initializable {
 		x.stop();
 		timeline.stop();
 		Alerts.textAlert("u kiding meeeee", "u loose");
-		if(gameActions.getScore() > highscore) {
-			highscore = gameActions.getScore();
+		if(GameActions.getScore() > highscore) {
+			highscore = GameActions.getScore();
 			highscorelabel.setText(Integer.toString(highscore));
 			FileWriter fw;
 			try {
 				fw = new FileWriter("Highscore.txt");
-				fw.write(Integer.toString(gameActions.getScore()));    
+				fw.write(Integer.toString(GameActions.getScore()));    
 		           fw.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
