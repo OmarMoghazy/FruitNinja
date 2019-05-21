@@ -20,15 +20,7 @@ public interface IGameObject {
 	*/
 	public double getMaxHeight();
 	/*
-	*@return velocity at which game object is thrown
-	*/
-	public int getInitialVelocity();
-	/*
-	*@return failing velocity of game object
-	*/
-	public int getFallingVelocity();
-	/*
-	*@return whether the object is sliced or not
+	turn whether the object is sliced or not
 	*/
 	public Boolean isSliced();
 	/*

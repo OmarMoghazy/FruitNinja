@@ -3,7 +3,7 @@ package misc;
 import gameObjects.*;
 
 public class GameObjectFactory {
-	public static GameObject createObject() {
+	public GameObject createObject() {
 		int x  = (int)( Math.random() * 20 );
 		if(x < 14) return new RegularFruit();
 		else if(x < 17) return new SpecialFruit();
@@ -12,7 +12,7 @@ public class GameObjectFactory {
 		return null;
 	}
 	
-	public static GameObject createObject(ObjectType type) {
+	public GameObject createObject(ObjectType type) {
 		if(type.equals(ObjectType.REGULAR_FRUIT)) return new RegularFruit();
 		else if(type.equals(ObjectType.SPECIAL_FRUIT)) return new SpecialFruit();
 		else if(type.equals(ObjectType.DANGEROUS_BOMB)) return new DangerousBomb();

@@ -5,32 +5,33 @@ import javafx.scene.image.Image;
 import misc.Difficulty;
 
 public class GameObject {
-	boolean isSliced = false;
-	double Xlocation;
-	double Ylocation;
-	Image[] images = new Image[2];
-	boolean up = true;
+	public boolean isSliced = false;
+	public double Xlocation;
+	public double Ylocation;
+	public Image[] images = new Image[2];
+	public boolean up = true;
 	double maxHeight;
-	double initialVelocity;
-	double acceleration = -0.00001;
-	double currentVelocity;
-	public boolean hasBeenSliced = false;
+	public static int speed;
 
-<<<<<<< HEAD
 	public double getXlocation() {
 		return Xlocation;
 	}
-=======
-	public double getXlocation() { return Xlocation; }
 
-	public double getYlocation() { return Ylocation; }
->>>>>>> 1d7bbc771fcbbeff8735b7e73f724de3165f9ff0
+	public double getYlocation() {
+		return Ylocation;
+	}
 
-	public Boolean hasMovedOffScreen() { return  Ylocation >= 600; }
+	public Boolean hasMovedOffScreen() {
+		return  Ylocation >= 600;
+	}
 
-	public Boolean isSliced() { return isSliced; }
+	public Boolean isSliced() {
+		return isSliced;
+	}
 
-	public Image[] getImages() { return images; }
+	public Image[] getImages() {
+		return images;
+	}
 
 	public void render(GraphicsContext gc) {
 		if (isSliced)
@@ -47,7 +48,7 @@ public class GameObject {
 		  currentVelocity = newCurrentVelocity;
 		  
 		 */
-		int speed;
+		
 		if(difficulty.equals(Difficulty.EASY)) speed = 4;
 		else if(difficulty.equals(Difficulty.MEDIUM)) speed = 8;
 		else speed = 12;
@@ -59,11 +60,8 @@ public class GameObject {
 				Ylocation = newYLocation;
 		} else  Ylocation += speed;
 	}
+	
 	public void slice() {
 		isSliced =true;
-	}
-
-	public boolean hasBeenSliced() {
-		return hasBeenSliced;
 	}
 }

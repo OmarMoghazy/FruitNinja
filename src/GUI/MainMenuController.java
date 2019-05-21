@@ -3,11 +3,8 @@ package GUI;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-<<<<<<< HEAD
 
 import controller.GameActions;
-=======
->>>>>>> 1d7bbc771fcbbeff8735b7e73f724de3165f9ff0
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,16 +16,13 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import misc.Difficulty;
 
-import controller.GameActions;
-import misc.Difficulty;
-
 public class MainMenuController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		
 	}
-
 	@FXML private Button exitbutton;
 	@FXML private Button hardbutton;
 	@FXML private Button mediumbutton;
@@ -79,4 +73,16 @@ public class MainMenuController implements Initializable {
 		else if (x==2)
 			easybutton(event);
 	}
+	
+	public void loadGame(ActionEvent event) throws IOException {
+		GameController.flag = 0;
+		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		Parent root = FXMLLoader.load(getClass().getResource("Game.fxml"));
+		GameController.flag = 1;
+		Scene scene = new Scene(root, 800, 600);
+		window.setScene(scene);
+		window.show();
+	}
+
+
 }
