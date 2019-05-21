@@ -23,7 +23,7 @@ import misc.Difficulty;
 import misc.SaveMemento;
 
 public class SaveLoad {
-	SaveMemento saveMemento;
+	private SaveMemento saveMemento;
 	
 	public void setMemento(SaveMemento saveMemento) {
 		this.saveMemento = saveMemento;

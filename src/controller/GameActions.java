@@ -7,32 +7,32 @@ import misc.SaveMemento;
 
 import java.util.ArrayList;
 
-import command.Command;
-import command.Remote;
-import command.SaveLoad;
 import command.*;
 import gameObjects.DangerousBomb;
 import gameObjects.GameObject;
 import gameObjects.RegularFruit;
 import gameObjects.SpecialFruit;
+import interfaces.Command;
 import interfaces.IGameActions;
 
 public class GameActions implements IGameActions {
 	private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
-	static int score = 0;
-	static int lives = 3;
-	static int time = 0;
-	static Difficulty difficulty = Difficulty.EASY;
-	ArrayList<GameObject> toBeDeleted = new ArrayList<GameObject>();
-	SaveLoad saveLoad = new SaveLoad();
-	Remote remote = new Remote();
-	Command SaveCommand = new SaveCommand(saveLoad);
-	Command loadCommand = new LoadCommand(saveLoad);
+	private static int score = 0;
+	private static int lives = 3;
+	private static int time = 0;
+	private static Difficulty difficulty;
+	private ArrayList<GameObject> toBeDeleted = new ArrayList<GameObject>();
+	private SaveLoad saveLoad = new SaveLoad();
+	private Remote remote = new Remote();
+	private Command SaveCommand = new SaveCommand(saveLoad);
+	private Command loadCommand = new LoadCommand(saveLoad);
+	private GameObjectFactory gameObjectFactory = new GameObjectFactory();
 
 	// Singleton
 	private static GameActions gameActions;
 
 	private GameActions() {
+		
 	}
 
 	public static synchronized GameActions getInstance() {
@@ -43,7 +43,7 @@ public class GameActions implements IGameActions {
 
 	@Override
 	public void createGameObject() {
-		gameObjects.add(GameObjectFactory.createObject());
+		gameObjects.add(gameObjectFactory.createObject());
 	}
 
 	@Override
@@ -140,14 +140,14 @@ public class GameActions implements IGameActions {
 		toBeDeleted.clear();
 	}
 
-	public void SaveGame() {
+	public void saveGame() {
 		SaveMemento saveMemento = new SaveMemento(GameActions.getScore(), GameActions.getLives(), GameActions.getTime(), GameActions.getDifficulty());
 		saveLoad.setMemento(saveMemento);
 		remote.setCommand(SaveCommand);
 		remote.pressButton();
 	}
 
-	public void LoadGame() {
+	public void loadGame() {
 		remote.setCommand(loadCommand);
 		remote.pressButton();
 	}

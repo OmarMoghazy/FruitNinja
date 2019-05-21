@@ -1,7 +1,9 @@
 package command;
 
+import interfaces.Command;
+
 public class SaveCommand implements Command {
-	SaveLoad saveLoad;
+	private SaveLoad saveLoad;
 	public SaveCommand(SaveLoad saveLoad) {
 		this.saveLoad = saveLoad;
 	}

@@ -1,5 +1,7 @@
 package command;
 
+import interfaces.Command;
+
 public class LoadCommand implements Command {
 	SaveLoad saveLoad;
 	public LoadCommand(SaveLoad saveLoad) {

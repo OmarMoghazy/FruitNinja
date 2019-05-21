@@ -18,7 +18,6 @@ import misc.Difficulty;
 
 public class MainMenuController implements Initializable {
 
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
@@ -28,8 +27,6 @@ public class MainMenuController implements Initializable {
 	@FXML private Button hardbutton;
 	@FXML private Button mediumbutton;
 	@FXML private Button easybutton;
-
-
 
 	@FXML
 	public void exitbutton(ActionEvent event) throws IOException{

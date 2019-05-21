@@ -1,5 +1,7 @@
 package command;
 
+import interfaces.Command;
+
 public class Remote {
 	private Command command;
 	public void setCommand(Command command) {

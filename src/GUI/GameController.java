@@ -35,33 +35,24 @@ import misc.Difficulty;
 
 public class GameController implements Initializable {
 
-	@FXML
-	Canvas canvas;
-	@FXML
-	Label scorelabel;
-	@FXML
-	Label highscorelabel;
-	@FXML
-	Label gamediflabel;
-	@FXML
-	Label timeLabel;
-	@FXML
-	ImageView life1;
-	@FXML
-	ImageView life2;
-	@FXML
-	ImageView life3;
-	@FXML
-	Button resetButton;
+	@FXML	private Canvas canvas;
+	@FXML	private Label scorelabel;
+	@FXML	private Label highscorelabel;
+	@FXML	private Label gamediflabel;
+	@FXML	private Label timeLabel;
+	@FXML	private ImageView life1;
+	@FXML	private ImageView life2;
+	@FXML	private ImageView life3;
+	@FXML	private Button resetButton;
 
-	double mouseX;
-	double mouseY;
+	private double mouseX;
+	private double mouseY;
 
-	GraphicsContext gc;
-	Timeline timeline;
-	GameActions gameActions = GameActions.getInstance();
-	AnimationTimer animationTimer;
-	int highscore = 0;
+	private GraphicsContext gc;
+	private Timeline timeline;
+	private GameActions gameActions = GameActions.getInstance();
+	private AnimationTimer animationTimer;
+	private int highscore = 0;
 	public static int flag = 1;
 
 	@Override
@@ -78,7 +69,7 @@ public class GameController implements Initializable {
 		if(flag == 1)
 			gameActions.ResetGame();
 		else 
-			gameActions.LoadGame();
+			gameActions.loadGame();
 		
 		if(GameActions.getDifficulty().equals(Difficulty.EASY)) gamediflabel.setText("Easy");
 		else if(GameActions.getDifficulty().equals(Difficulty.MEDIUM)) gamediflabel.setText("Medium");
@@ -132,7 +123,7 @@ public class GameController implements Initializable {
 	}
 	
 	public void save(ActionEvent e) {
-		gameActions.SaveGame();
+		gameActions.saveGame();
 	}
 	
 	public void back(ActionEvent e) {

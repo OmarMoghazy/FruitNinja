@@ -5,16 +5,12 @@ import javafx.scene.image.Image;
 import misc.Difficulty;
 
 public class GameObject {
-	boolean isSliced = false;
-	double Xlocation;
-	double Ylocation;
-	Image[] images = new Image[2];
-	boolean up = true;
+	public boolean isSliced = false;
+	public double Xlocation;
+	public double Ylocation;
+	public Image[] images = new Image[2];
+	public boolean up = true;
 	double maxHeight;
-	double initialVelocity;
-	double acceleration = -0.00001;
-	double currentVelocity;
-	public boolean hasBeenSliced = false;
 	public static int speed;
 
 	public double getXlocation() {
@@ -64,11 +60,8 @@ public class GameObject {
 				Ylocation = newYLocation;
 		} else  Ylocation += speed;
 	}
+	
 	public void slice() {
 		isSliced =true;
-	}
-
-	public boolean hasBeenSliced() {
-		return hasBeenSliced;
 	}
 }
