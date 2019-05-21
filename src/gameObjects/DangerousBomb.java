@@ -18,12 +18,8 @@ public class DangerousBomb extends GameObject implements IGameObject {
 	}
 
 	@Override
-	public double getMaxHeight() {
-		return maxHeight;
-	}
+	public double getMaxHeight() {return maxHeight;}
 
 	@Override
-	public ObjectType getObjectType() {
-		return ObjectType.DANGEROUS_BOMB;
-	}
+	public ObjectType getObjectType() {return ObjectType.DANGEROUS_BOMB;}
 }
