@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 import controller.GameActions;
 import gameObjects.FatalBomb;
+import gameObjects.GameObject;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -85,9 +86,8 @@ public class GameController implements Initializable {
 		gc = canvas.getGraphicsContext2D();
 		timeline = new Timeline(new KeyFrame(Duration.seconds(1), actionEvent -> {
 			gameActions.createGameObject();
-			scorelabel.setText(Integer.toString(gameActions.getScore()));
-			timeLabel.setText(Integer.toString(gameActions.getTime()));
 			gameActions.incrementTime();
+			if(gameActions.getTime() % 20 == 0) GameObject.speed += 1.5;
 		}));
 		timeline.setCycleCount(Timeline.INDEFINITE);
 		timeline.play();
@@ -123,8 +123,13 @@ public class GameController implements Initializable {
 						loseGame();
 					gameActions.updateObjectsLocations(gc);	
 				}
+				scorelabel.setText(Integer.toString(gameActions.getScore()));
+				timeLabel.setText(Integer.toString(gameActions.getTime()));
+				if(gameActions.getScore() > highscore) highscorelabel.setText(Integer.toString(gameActions.getScore()));
 			}
 		};
+		
+		
 		x.start();
 	}
 	
@@ -153,7 +158,6 @@ public class GameController implements Initializable {
 	}
 
 	private void loseGame() {
-		System.out.println("the snooze u loose");
 		x.stop();
 		timeline.stop();
 		Alerts.textAlert("u kiding meeeee", "u loose");

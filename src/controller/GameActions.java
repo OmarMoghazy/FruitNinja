@@ -154,13 +154,13 @@ public class GameActions implements IGameActions {
  
             //Diff.appendChild();
  
-            Diff.appendChild(document.createTextNode(difficulty +","));
+            Diff.appendChild(document.createTextNode(difficulty +" "));
             Diff.appendChild(Score);
-            Score.appendChild(document.createTextNode(String.valueOf(score) + ","));
+            Score.appendChild(document.createTextNode(String.valueOf(score) + " "));
             Diff.appendChild(Lives);
-            Lives.appendChild(document.createTextNode(String.valueOf(lives) + ","));
+            Lives.appendChild(document.createTextNode(String.valueOf(lives) + " "));
             Diff.appendChild(Time);
-            Time.appendChild(document.createTextNode(String.valueOf(time) + ","));
+            Time.appendChild(document.createTextNode(String.valueOf(time) + " "));
  
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
@@ -191,7 +191,7 @@ public class GameActions implements IGameActions {
             String Data = document.getElementsByTagName("Difficulty").item(0).getTextContent();
             System.out.println(Data);
             ArrayList<String> DataList = new ArrayList<String>();
-            for (String val : Data.split(",")) {
+            for (String val : Data.split(" ")) {
                 System.out.println(val);
                 DataList.add(val);
             }

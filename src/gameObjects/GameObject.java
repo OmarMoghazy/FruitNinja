@@ -15,6 +15,7 @@ public class GameObject {
 	double acceleration = -0.00001;
 	double currentVelocity;
 	public boolean hasBeenSliced = false;
+	public static int speed;
 
 	public double getXlocation() {
 		return Xlocation;
@@ -51,7 +52,7 @@ public class GameObject {
 		  currentVelocity = newCurrentVelocity;
 		  
 		 */
-		int speed;
+		
 		if(difficulty.equals(Difficulty.EASY)) speed = 4;
 		else if(difficulty.equals(Difficulty.MEDIUM)) speed = 8;
 		else speed = 12;
