@@ -39,31 +39,17 @@ import misc.Difficulty;
 
 public class GameController implements Initializable {
 
-	Media slice = new Media(new File("Resources/slice.mp3").toURI().toString());
-	MediaPlayer SliceSound = new MediaPlayer(slice);
+	private MediaPlayer SliceSound = new MediaPlayer(new Media(new File("Resources/slice.mp3").toURI().toString()));
+	private MediaPlayer SpecialSound = new MediaPlayer(new Media(new File("Resources/special.mp3").toURI().toString()));
+	private MediaPlayer BombSound = new MediaPlayer(new Media(new File("Resources/bomb.mp3").toURI().toString()));
+	private MediaPlayer billie = new MediaPlayer(new Media(new File("Resources/highscore.mp3").toURI().toString()));
+	private MediaPlayer wiiPlayer = new MediaPlayer(new Media(new File("Resources/wii.mp3").toURI().toString()));
+	private MediaPlayer evilmorty = new MediaPlayer(new Media(new File("Resources/gameover.mp3").toURI().toString()));
 
-	Media special = new Media(new File("Resources/special.mp3").toURI().toString());
-	MediaPlayer SpecialSound = new MediaPlayer(special);
-
-	Media Bombsound = new Media(new File("Resources/bomb.mp3").toURI().toString());
-	MediaPlayer BombSound = new MediaPlayer(Bombsound);
-
-	Media highscoresound = new Media(new File("Resources/highscore.mp3").toURI().toString());
-	MediaPlayer billie = new MediaPlayer(highscoresound);
-
-	Media wii = new Media(new File("Resources/wii.mp3").toURI().toString());
-	MediaPlayer wiiPlayer = new MediaPlayer(wii);
-
-	Media lose = new Media(new File("Resources/gameover.mp3").toURI().toString());
-	MediaPlayer evilmorty = new MediaPlayer(lose);
-	@FXML
-	private Canvas canvas;
-	@FXML
-	private Label scorelabel, highscorelabel, gamediflabel, timeLabel, lives;
-	@FXML
-	private ImageView life1, life2, life3;
-	@FXML
-	private Button resetButton;
+	@FXML private Canvas canvas;
+	@FXML private Label scorelabel, highscorelabel, gamediflabel, timeLabel, lives;
+	@FXML private ImageView life1, life2, life3;
+	@FXML private Button resetButton;
 
 	private double mouseX, mouseY;
 
@@ -72,9 +58,9 @@ public class GameController implements Initializable {
 	private GameActions gameActions = GameActions.getInstance();
 	private AnimationTimer animationTimer;
 	private int highscore = 0;
-	public static int flag = 1;
+	static int flag = 1;
 	private int c = 0;
-	public static String gameMode;
+	static String gameMode;
 
 	private Image life = new Image(new File("Resources/lives2.png").toURI().toString());
 
@@ -127,8 +113,6 @@ public class GameController implements Initializable {
 		animationTimer = new AnimationTimer() {
 			@Override
 			public void handle(long arg0) {
-				
-				
 
 				gc.clearRect(0, 0, 800, 600);
 				gc.drawImage(new Image(new File("Resources/bg.png").toURI().toString()), 0, 0, 800, 600);
@@ -169,9 +153,7 @@ public class GameController implements Initializable {
 		animationTimer.start();
 	}
 
-	public void save(ActionEvent e) {
-		gameActions.saveGame();
-	}
+	public void save(ActionEvent e) { gameActions.saveGame(); }
 
 	public void back(ActionEvent e) {
 		billie.stop();
@@ -196,7 +178,6 @@ public class GameController implements Initializable {
 
 	private void loseGame() {
 		wiiPlayer.stop();
-
 		animationTimer.stop();
 		timeline.stop();
 		Alerts.imageAlert("game over", "Resources/gaemo.png");

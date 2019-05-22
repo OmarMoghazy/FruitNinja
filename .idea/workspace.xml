@@ -26,49 +26,34 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI/MainMenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="45" column="43" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GUI/GameController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="101" column="105" lean-forward="true" selection-start-line="101" selection-start-column="38" selection-end-line="101" selection-end-column="105" />
-              <folding>
-                <element signature="e#3324#4450#0" expanded="true" />
-                <element signature="e#4449#4450#0" expanded="true" />
-                <element signature="method#back#0;class#GameController#0" />
-              </folding>
+            <state relative-caret-position="72">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/controller/GameActions.java">
+        <entry file="file://$PROJECT_DIR$/src/GUI/Game.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="47" column="25" lean-forward="true" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
-              <folding>
-                <element signature="method#sliceObject#1;class#GameActions#0" />
-                <element signature="method#checkFallingObjects#0;class#GameActions#0" />
-                <element signature="method#checkFallingObjects2#0;class#GameActions#0" />
-                <element signature="method#saveGame#0;class#GameActions#0" />
-                <element signature="method#loadGame#0;class#GameActions#0" />
-              </folding>
+            <state relative-caret-position="1536">
+              <caret line="64" column="120" selection-start-line="64" selection-start-column="120" selection-end-line="64" selection-end-column="120" />
             </state>
           </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gameObjects/GameObject.java">
+        <entry file="file://$PROJECT_DIR$/src/GUI/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="36" column="21" lean-forward="true" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+            <state relative-caret-position="2520">
+              <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
               <folding>
-                <element signature="e#1533#1534#0" expanded="true" />
+                <element signature="e#3910#5091#0" expanded="true" />
+                <element signature="e#5090#5091#0" expanded="true" />
+                <element signature="method#back#0;class#GameController#0" />
+                <element signature="method#loseGame#0;class#GameController#0" />
+                <element signature="method#onDrag#0;class#GameController#0" />
+                <element signature="method#reset#0;class#GameController#0" />
               </folding>
             </state>
           </provider>
@@ -99,14 +84,14 @@
         <option value="$PROJECT_DIR$/src/GUI/GamePlayController.java" />
         <option value="$PROJECT_DIR$/src/interfaces/IGameActions.java" />
         <option value="$PROJECT_DIR$/src/GUI/GamePlay.fxml" />
-        <option value="$PROJECT_DIR$/src/GUI/Game.fxml" />
         <option value="$PROJECT_DIR$/src/misc/Alerts.java" />
         <option value="$PROJECT_DIR$/class diagram.puml" />
-        <option value="$PROJECT_DIR$/src/GUI/MainMenu.fxml" />
-        <option value="$PROJECT_DIR$/src/GUI/MainMenuController.java" />
-        <option value="$PROJECT_DIR$/src/GUI/GameController.java" />
         <option value="$PROJECT_DIR$/src/gameObjects/GameObject.java" />
         <option value="$PROJECT_DIR$/src/controller/GameActions.java" />
+        <option value="$PROJECT_DIR$/src/GUI/GameController.java" />
+        <option value="$PROJECT_DIR$/src/GUI/MainMenuController.java" />
+        <option value="$PROJECT_DIR$/src/GUI/MainMenu.fxml" />
+        <option value="$PROJECT_DIR$/src/GUI/Game.fxml" />
       </list>
     </option>
   </component>
@@ -127,7 +112,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -180,6 +164,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -238,7 +223,7 @@
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18374817" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18374817" />
       <window_info id="Structure" order="1" show_stripe_button="false" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -367,32 +352,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/class diagram.puml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/Game.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/MainMenu.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="17" column="281" selection-start-line="17" selection-start-column="281" selection-end-line="17" selection-end-column="281" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/MainMenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="45" column="43" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/class diagram.puml" />
     <entry file="file://$PROJECT_DIR$/src/gameObjects/SpecialFruit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -402,32 +362,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gameObjects/GameObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="36" column="21" lean-forward="true" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
-          <folding>
-            <element signature="e#1533#1534#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/GameController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="101" column="105" lean-forward="true" selection-start-line="101" selection-start-column="38" selection-end-line="101" selection-end-column="105" />
-          <folding>
-            <element signature="e#3324#4450#0" expanded="true" />
-            <element signature="e#4449#4450#0" expanded="true" />
-            <element signature="method#back#0;class#GameController#0" />
-          </folding>
+        <state relative-caret-position="295">
+          <caret line="63" column="25" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/GameActions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="47" column="25" lean-forward="true" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
+        <state relative-caret-position="2760">
+          <caret line="168" column="27" selection-start-line="168" selection-start-column="27" selection-end-line="168" selection-end-column="27" />
           <folding>
-            <element signature="method#sliceObject#1;class#GameActions#0" />
             <element signature="method#checkFallingObjects#0;class#GameActions#0" />
             <element signature="method#checkFallingObjects2#0;class#GameActions#0" />
             <element signature="method#saveGame#0;class#GameActions#0" />
@@ -435,6 +379,44 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/GameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2520">
+          <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
+          <folding>
+            <element signature="e#3910#5091#0" expanded="true" />
+            <element signature="e#5090#5091#0" expanded="true" />
+            <element signature="method#back#0;class#GameController#0" />
+            <element signature="method#loseGame#0;class#GameController#0" />
+            <element signature="method#onDrag#0;class#GameController#0" />
+            <element signature="method#reset#0;class#GameController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/MainMenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/MainMenu.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="16" column="298" selection-start-line="16" selection-start-column="298" selection-end-line="16" selection-end-column="298" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/Game.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1536">
+          <caret line="64" column="120" selection-start-line="64" selection-start-column="120" selection-end-line="64" selection-end-column="120" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
   </component>
   <component name="masterDetails">

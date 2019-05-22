@@ -22,16 +22,12 @@ import javafx.stage.Stage;
 import misc.Difficulty;
 
 public class MainMenuController implements Initializable {
-	
-	Media mainmenu = new Media(new File("Resources/mainmenu.mp3").toURI().toString());
-	MediaPlayer Mainmenu = new MediaPlayer(mainmenu);
-	
+
+	private MediaPlayer Mainmenu = new MediaPlayer(new Media(new File("Resources/mainmenu.mp3").toURI().toString()));
 
 	@FXML private ImageView mainMenu;
 
 	Image image = new Image(new File("Resources/MainMenu.png").toURI().toString());
-
-//	private MediaPlayer mediaPlayer = new MediaPlayer(new Media(getClass().getResource("/nick.mp3").toString()));
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -40,11 +36,9 @@ public class MainMenuController implements Initializable {
 		Mainmenu.stop();
 		Mainmenu.play();
 	}
-	@FXML
-	private Button exitbutton, hardbutton, mediumbutton, easybutton;
 
 	@FXML
-	public void exitbutton(ActionEvent event) throws IOException{ System.exit(0); }
+	public void exitbutton() { System.exit(0); }
 
     @FXML
 	public void easybutton(ActionEvent event) throws IOException {
@@ -82,7 +76,6 @@ public class MainMenuController implements Initializable {
 	}
 	@FXML
 	public void randombutton(ActionEvent event) throws IOException  {
-		System.out.println("Random");
 		int x = (int) (Math.random() * 3);
 		if (x==0)
 			hardbutton(event);
