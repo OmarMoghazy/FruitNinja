@@ -62,6 +62,7 @@ public class GameObject {
 	}
 	
 	public void slice() {
+		
 		isSliced =true;
 	}
 }

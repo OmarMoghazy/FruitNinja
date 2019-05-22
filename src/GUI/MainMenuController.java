@@ -22,6 +22,10 @@ import javafx.stage.Stage;
 import misc.Difficulty;
 
 public class MainMenuController implements Initializable {
+	
+	Media mainmenu = new Media(new File("Resources/mainmenu.mp3").toURI().toString());
+	MediaPlayer Mainmenu = new MediaPlayer(mainmenu);
+	
 
 	@FXML private ImageView mainMenu;
 
@@ -32,6 +36,9 @@ public class MainMenuController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		mainMenu.setImage(image);
+		Mainmenu.setCycleCount(MediaPlayer.INDEFINITE);
+		Mainmenu.stop();
+		Mainmenu.play();
 	}
 	@FXML
 	private Button exitbutton, hardbutton, mediumbutton, easybutton;
@@ -41,6 +48,7 @@ public class MainMenuController implements Initializable {
 
     @FXML
 	public void easybutton(ActionEvent event) throws IOException {
+    	Mainmenu.stop();
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		GameActions.setDifficulty(Difficulty.EASY);
 		GameController.gameMode = "normal";
@@ -52,6 +60,7 @@ public class MainMenuController implements Initializable {
 
 	@FXML
 	public void mediumbutton(ActionEvent event) throws IOException {
+		Mainmenu.stop();
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		GameActions.setDifficulty(Difficulty.MEDIUM);
 		GameController.gameMode = "normal";
@@ -62,6 +71,7 @@ public class MainMenuController implements Initializable {
 	}
 	@FXML
 	public void hardbutton(ActionEvent event) throws IOException {
+		Mainmenu.stop();
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		GameActions.setDifficulty(Difficulty.HARD);
 		GameController.gameMode = "normal";
@@ -84,6 +94,7 @@ public class MainMenuController implements Initializable {
 
 	@FXML
 	public void arcadeButton(ActionEvent event) throws IOException  {
+		Mainmenu.stop();
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		GameActions.setDifficulty(Difficulty.MEDIUM);
 		GameController.gameMode = "arcade";
@@ -94,6 +105,7 @@ public class MainMenuController implements Initializable {
 	}
 	
 	public void loadGame(ActionEvent event) throws IOException {
+		Mainmenu.stop();
 		GameController.flag = 0;
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		Parent root = FXMLLoader.load(getClass().getResource("Game.fxml"));
