@@ -1,5 +1,6 @@
 package controller;
 
+import gameObjects.*;
 import javafx.scene.canvas.GraphicsContext;
 import misc.Difficulty;
 import misc.GameObjectFactory;
@@ -8,10 +9,6 @@ import misc.SaveMemento;
 import java.util.ArrayList;
 
 import command.*;
-import gameObjects.DangerousBomb;
-import gameObjects.GameObject;
-import gameObjects.RegularFruit;
-import gameObjects.SpecialFruit;
 import interfaces.Command;
 import interfaces.IGameActions;
 
@@ -94,6 +91,12 @@ public class GameActions implements IGameActions {
 
 	public void scorePlusOne() { score++; }
 
+	public void combo2() { score = score * 2; }
+
+	public void combo3() { score = score * 3; }
+
+	public void combo4() { score = score * 4; }
+
 	public void scorePlusFive() {
 		score = score + 5;
 	}
@@ -101,6 +104,14 @@ public class GameActions implements IGameActions {
 	public void loseLife() {
 		lives--;
 	}
+
+	public void timeBonus(){ if (time >=10 ) time = time -10; }
+
+	public void lifeBonus(){ if(lives < 3) lives = lives + 1;}
+
+	private void scoreMinusFive(){ if (score >= 5) score -= 5; else score=0;}
+
+	private void scoreMinusTwo(){ if (score >= 2) score -= 2;	else score=0;}
 
 	public static Difficulty getDifficulty() {
 		return difficulty;
@@ -114,10 +125,24 @@ public class GameActions implements IGameActions {
 		gameObject.slice();
 		if (gameObject instanceof RegularFruit)
 			scorePlusOne();
+		else if (gameObject instanceof SpecialFruit){
+			scorePlusFive();
+			lifeBonus();
+		}
+		else if (gameObject instanceof DangerousBomb)
+			loseLife();
+	}
+
+	public void sliceObject2(GameObject gameObject) {
+		gameObject.slice();
+		if (gameObject instanceof RegularFruit)
+			scorePlusOne();
 		else if (gameObject instanceof SpecialFruit)
 			scorePlusFive();
 		else if (gameObject instanceof DangerousBomb)
-			loseLife();
+			scoreMinusTwo();
+		else if(gameObject instanceof FatalBomb)
+			scoreMinusFive();
 	}
 
 	public void checkFallingObjects() {
@@ -130,6 +155,13 @@ public class GameActions implements IGameActions {
 					}
 			}
 		}
+		gameActions.getGameObjects().removeAll(toBeDeleted);
+		toBeDeleted.clear();
+	}
+
+	public void checkFallingObjects2() {
+		for (GameObject x : gameObjects)
+			if (x.hasMovedOffScreen()) toBeDeleted.add(x);
 		gameActions.getGameObjects().removeAll(toBeDeleted);
 		toBeDeleted.clear();
 	}
