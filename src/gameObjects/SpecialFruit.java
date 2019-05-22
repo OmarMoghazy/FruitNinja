@@ -7,7 +7,7 @@ import javafx.scene.image.Image;
 import misc.ObjectType;
 
 public class SpecialFruit extends GameObject implements IGameObject{
-	
+	private ObjectType objectType = ObjectType.SPECIAL_FRUIT;
 	public SpecialFruit() {
 		int x = (int)(Math.random() * 2);
 		switch(x) {
@@ -25,7 +25,6 @@ public class SpecialFruit extends GameObject implements IGameObject{
 		this.Xlocation = (int) (Math.random() * 600 +75 );
 		this.Ylocation = 550;
 		maxHeight = Math.random() * 600 * 0.2;
-		initialVelocity = Math.random() * 6 + 5;
 	}
 
 	@Override
@@ -34,21 +33,8 @@ public class SpecialFruit extends GameObject implements IGameObject{
 	}
 
 	@Override
-	public int getInitialVelocity() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getFallingVelocity() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
-	@Override
-	public void slice() {
-		isSliced = true;
-		
+	public ObjectType getObjectType() {
+		return objectType;
 	}
 
 }

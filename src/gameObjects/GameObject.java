@@ -2,24 +2,16 @@ package gameObjects;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import misc.ObjectType;
+import misc.Difficulty;
 
 public class GameObject {
-	protected final ObjectType objectType = ObjectType.DANGEROUS_BOMB;
-	boolean isSliced = false;
-	double Xlocation;
-	double Ylocation;
-	Image[] images = new Image[2];
-	boolean up = true;
+	public boolean isSliced = false;
+	public double Xlocation;
+	public double Ylocation;
+	public Image[] images = new Image[2];
+	public boolean up = true;
 	double maxHeight;
-	double initialVelocity;
-	double acceleration = -0.00001;
-	double currentVelocity;
-	public boolean hasBeenSliced = false;
-
-	public ObjectType getObjectType() {
-		return objectType;
-	}
+	public static int speed;
 
 	public double getXlocation() {
 		return Xlocation;
@@ -48,7 +40,7 @@ public class GameObject {
 			gc.drawImage(images[0], Xlocation, Ylocation, 75, 75);
 	}
 
-	public void move(long time) {
+	public void move(long time,Difficulty difficulty) {
 		/*double mtime = (double)time* Math.pow(10, -6);
 		  double newCurrentVelocity = currentVelocity + acceleration * mtime;
 		  double newYLocation = Ylocation + currentVelocity * mtime + (1/2) * acceleration * mtime * mtime;
@@ -56,19 +48,20 @@ public class GameObject {
 		  currentVelocity = newCurrentVelocity;
 		  
 		 */
+		
+		if(difficulty.equals(Difficulty.EASY)) speed = 4;
+		else if(difficulty.equals(Difficulty.MEDIUM)) speed = 8;
+		else speed = 12;
 		if (up) {
-			double newYLocation = Ylocation - 7;
+			double newYLocation = Ylocation - speed;
 			if (newYLocation < maxHeight)
 				up = false;
 			else
 				Ylocation = newYLocation;
-		} else  Ylocation += 7;
+		} else  Ylocation += speed;
 	}
+	
 	public void slice() {
 		isSliced =true;
-	}
-
-	public boolean hasBeenSliced() {
-		return hasBeenSliced;
 	}
 }

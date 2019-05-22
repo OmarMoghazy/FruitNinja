@@ -1,26 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="563.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainMenuController">
+<AnchorPane prefHeight="563.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainMenuController">
    <children>
       <Button fx:id="easybutton" layoutX="117.0" layoutY="407.0" mnemonicParsing="false" onAction="#easybutton" prefHeight="49.0" prefWidth="128.0" text="Easy" />
       <Button fx:id="mediumbutton" layoutX="293.0" layoutY="407.0" mnemonicParsing="false" onAction="#mediumbutton" prefHeight="49.0" prefWidth="128.0" text="Medium" />
       <Button fx:id="hardbutton" layoutX="469.0" layoutY="407.0" mnemonicParsing="false" onAction="#hardbutton" prefHeight="49.0" prefWidth="128.0" text="Hard" />
       <Button fx:id="randombutton" layoutX="117.0" layoutY="471.0" mnemonicParsing="false" onAction="#randombutton" prefHeight="49.0" prefWidth="128.0" text="Random" />
       <Button fx:id="exitbutton" layoutX="469.0" layoutY="471.0" mnemonicParsing="false" onAction="#exitbutton" prefHeight="49.0" prefWidth="128.0" text="Exit" />
-      <ImageView fitHeight="349.0" fitWidth="699.0" layoutX="117.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../Resources/MainMenu.png" />
-         </image>
+      <ImageView fx:id="mainMenu" fitHeight="349.0" fitWidth="699.0" layoutX="117.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
       </ImageView>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="17.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="loadGame" layoutX="293.0" layoutY="471.0" mnemonicParsing="false" onAction="#loadGame" prefHeight="49.0" prefWidth="128.0" text="Load Game" />
+      <Button fx:id="arcade" layoutX="154.0" layoutY="11.0" mnemonicParsing="false" onAction="#arcadeButton" prefHeight="80.0" prefWidth="80.0" style="-fx-background-radius: 200; -fx-background-color: #00FFFF; -fx-border-color: #000000; -fx-border-radius: 50; -fx-border-width: 5;" text="arcade" />
    </children>
 </AnchorPane>

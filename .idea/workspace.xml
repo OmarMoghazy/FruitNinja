@@ -16,64 +16,61 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="DockManager">
+    <window id="3">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/GUI/MainMenu.fxml">
+                <provider editor-type-id="text-editor">
+                  <state relative-caret-position="408">
+                    <caret line="17" column="281" selection-start-line="17" selection-start-column="281" selection-end-line="17" selection-end-column="281" />
+                  </state>
+                </provider>
+                <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
   </component>
   <component name="FavoritesManager">
     <favorites_list name="Fruit Ninja" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GUI/MainMenuController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1015">
+              <caret line="81" column="9" lean-forward="true" selection-start-line="81" selection-start-column="9" selection-end-line="81" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2832">
-              <caret line="152" column="32" lean-forward="true" selection-start-line="152" selection-start-column="32" selection-end-line="152" selection-end-column="32" />
+            <state relative-caret-position="223">
+              <caret line="119" column="45" selection-start-line="119" selection-start-column="45" selection-end-line="119" selection-end-column="45" />
+              <folding>
+                <element signature="e#3324#4450#0" expanded="true" />
+                <element signature="e#4449#4450#0" expanded="true" />
+                <element signature="method#back#0;class#GameController#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/GameActions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="50" column="25" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/interfaces/IGameActions.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gameObjects/GameObject.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1224">
-              <caret line="65" column="5" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
-              <folding>
-                <element signature="e#512#513#0" expanded="true" />
-                <element signature="e#536#537#0" expanded="true" />
-                <element signature="e#569#570#0" expanded="true" />
-                <element signature="e#592#593#0" expanded="true" />
-                <element signature="e#625#626#0" expanded="true" />
-                <element signature="e#648#649#0" expanded="true" />
-                <element signature="e#687#688#0" expanded="true" />
-                <element signature="e#718#719#0" expanded="true" />
-                <element signature="e#748#749#0" expanded="true" />
-                <element signature="e#770#771#0" expanded="true" />
-                <element signature="e#801#802#0" expanded="true" />
-                <element signature="e#821#822#0" expanded="true" />
-                <element signature="e#1538#1539#0" expanded="true" />
-                <element signature="e#1559#1560#0" expanded="true" />
-                <element signature="e#1594#1595#0" expanded="true" />
-                <element signature="e#1621#1622#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="209">
+              <caret line="77" column="5" lean-forward="true" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -84,6 +81,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
+        <option value="UML Class" />
       </list>
     </option>
   </component>
@@ -99,14 +97,16 @@
         <option value="$PROJECT_DIR$/src/misc/GameObjectFactory.java" />
         <option value="$PROJECT_DIR$/src/GUI/MainClass.java" />
         <option value="$PROJECT_DIR$/src/GUI/adsadsa.fxml" />
-        <option value="$PROJECT_DIR$/src/GUI/MainMenu.fxml" />
         <option value="$PROJECT_DIR$/src/GUI/GamePlayController.java" />
-        <option value="$PROJECT_DIR$/src/GUI/MainMenuController.java" />
         <option value="$PROJECT_DIR$/src/interfaces/IGameActions.java" />
-        <option value="$PROJECT_DIR$/src/controller/GameActions.java" />
         <option value="$PROJECT_DIR$/src/GUI/GamePlay.fxml" />
         <option value="$PROJECT_DIR$/src/GUI/Game.fxml" />
+        <option value="$PROJECT_DIR$/src/misc/Alerts.java" />
+        <option value="$PROJECT_DIR$/class diagram.puml" />
+        <option value="$PROJECT_DIR$/src/controller/GameActions.java" />
+        <option value="$PROJECT_DIR$/src/GUI/MainMenuController.java" />
         <option value="$PROJECT_DIR$/src/GUI/GameController.java" />
+        <option value="$PROJECT_DIR$/src/GUI/MainMenu.fxml" />
       </list>
     </option>
   </component>
@@ -127,7 +127,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -136,19 +135,59 @@
               <item name="Fruit Ninja" type="b2602c69:ProjectViewProjectNode" />
               <item name="FruitNinja" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Fruit Ninja" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FruitNinja" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Fruit Ninja" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FruitNinja" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="command" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Fruit Ninja" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FruitNinja" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Fruit Ninja" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FruitNinja" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gameObjects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Fruit Ninja" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FruitNinja" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="GUI" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Fruit Ninja" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FruitNinja" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Fruit Ninja" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FruitNinja" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="misc" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultPlantUmlFileTemplate" value="UML Class" />
     <property name="ToolWindowAnt Build.ShowToolbar" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="experimental" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -199,7 +238,7 @@
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19000757" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18374817" />
       <window_info id="Structure" order="1" show_stripe_button="false" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -208,17 +247,17 @@
       <window_info id="Favorites" order="6" show_stripe_button="false" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" auto_hide="true" x="22" y="277" width="1322" height="214" id="Run" order="2" weight="0.44147158" />
+      <window_info anchor="bottom" auto_hide="true" x="22" y="277" width="1322" height="214" id="Run" order="2" weight="0.44032258" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32872504" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32903227" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" auto_hide="true" id="Messages" order="10" weight="0.3277592" />
+      <window_info anchor="bottom" auto_hide="true" id="Messages" order="10" weight="0.32580644" />
       <window_info anchor="bottom" id="Sequence" order="11" />
-      <window_info anchor="right" id="PlantUML" order="0" />
+      <window_info anchor="right" id="PlantUML" order="0" weight="0.329429" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" show_stripe_button="false" weight="0.24962178" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
@@ -269,13 +308,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameObjects/SpecialFruit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-687">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gameObjects/RegularFruit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-735">
@@ -298,92 +330,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/GamePlayController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="10" column="37" lean-forward="true" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/MainMenu.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/MainMenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-184">
-          <caret line="48" column="8" lean-forward="true" selection-start-line="48" selection-start-column="8" selection-end-line="52" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../RiverCrossPuzzle(1)/src/app/StoryOneController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="378" column="72" selection-start-line="378" selection-start-column="72" selection-end-line="378" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../RiverCrossPuzzle(1)/src/app/StoryGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="784" column="5" lean-forward="true" selection-start-line="768" selection-start-column="4" selection-end-line="784" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/GamePlay.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-667">
-          <caret line="31" column="53" lean-forward="true" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/com/sun/glass/ui/InvokeLaterDispatcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="99" column="17" lean-forward="true" selection-start-line="99" selection-start-column="17" selection-end-line="99" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/Game.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/GameController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2832">
-          <caret line="152" column="32" lean-forward="true" selection-start-line="152" selection-start-column="32" selection-end-line="152" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/GameActions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="50" column="25" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/GamePlayController.java" />
     <entry file="file://$PROJECT_DIR$/src/interfaces/IGameActions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
+        <state relative-caret-position="345">
           <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gameObjects/GameObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
+        <state relative-caret-position="1512">
           <caret line="65" column="5" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
           <folding>
             <element signature="e#512#513#0" expanded="true" />
@@ -406,81 +363,93 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../RiverCrossPuzzle(1)/src/app/StoryOneController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="378" column="72" selection-start-line="378" selection-start-column="72" selection-end-line="378" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../RiverCrossPuzzle(1)/src/app/StoryGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="784" column="5" lean-forward="true" selection-start-line="768" selection-start-column="4" selection-end-line="784" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/GamePlay.fxml" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/com/sun/glass/ui/InvokeLaterDispatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="99" column="17" lean-forward="true" selection-start-line="99" selection-start-column="17" selection-end-line="99" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/misc/Alerts.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="41" column="51" lean-forward="true" selection-start-line="41" selection-start-column="51" selection-end-line="41" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class diagram.puml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameObjects/SpecialFruit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/Game.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/MainMenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1015">
+          <caret line="81" column="9" lean-forward="true" selection-start-line="81" selection-start-column="9" selection-end-line="81" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/GameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="119" column="45" selection-start-line="119" selection-start-column="45" selection-end-line="119" selection-end-column="45" />
+          <folding>
+            <element signature="e#3324#4450#0" expanded="true" />
+            <element signature="e#4449#4450#0" expanded="true" />
+            <element signature="method#back#0;class#GameController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/GameActions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="77" column="5" lean-forward="true" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/MainMenu.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="17" column="281" selection-start-line="17" selection-start-column="281" selection-end-line="17" selection-end-column="281" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <last-edited>Fruit Ninja:jar</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.5" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>
