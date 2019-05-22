@@ -7,41 +7,41 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.172-ea" fx:controller="GUI.GameController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GameController">
    <children>
       <Canvas fx:id="canvas" height="600.0" onMouseDragged="#onDrag" width="800.0" />
       <Button fx:id="resetButton" layoutX="731.0" layoutY="561.0" mnemonicParsing="false" onAction="#reset" text="reset" AnchorPane.leftAnchor="731.0" AnchorPane.topAnchor="561.0" />
-      <Label layoutX="56.0" layoutY="14.0" text="Score:">
+      <Label layoutX="56.0" layoutY="14.0" style="-fx-text-fill: white;" text="Score:">
          <font>
            <Font name="System Bold" size="15.0" />
        </font>
       </Label>
-      <Label layoutX="26.0" layoutY="48.0" text="Highscore:">
+      <Label layoutX="26.0" layoutY="48.0" style="-fx-text-fill: white;" text="Highscore:">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="scorelabel" layoutX="114.0" layoutY="14.0" text="0">
+      <Label fx:id="scorelabel" layoutX="114.0" layoutY="14.0" style="-fx-text-fill: white;" text="0">
          <font>
             <Font name="System Italic" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="highscorelabel" layoutX="114.0" layoutY="48.0" text="idk highscore or some shit">
+      <Label fx:id="highscorelabel" layoutX="114.0" layoutY="48.0" style="-fx-text-fill: white;" text="idk highscore or some shit">
          <font>
             <Font name="System Italic" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="565.0" layoutY="25.0" text="Game Difficulty:">
+      <Label layoutX="565.0" layoutY="25.0" style="-fx-text-fill: white;" text="Game Difficulty:">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lives" layoutX="565.0" layoutY="63.0" prefHeight="31.0" prefWidth="56.0" text="Lives:">
+      <Label fx:id="lives" layoutX="565.0" layoutY="63.0" prefHeight="31.0" prefWidth="56.0" style="-fx-text-fill: white;" text="Lives:">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="gamediflabel" layoutX="693.0" layoutY="25.0" text="very difficult">
+      <Label fx:id="gamediflabel" layoutX="693.0" layoutY="25.0" style="-fx-text-fill: white;" text="very difficult">
          <font>
             <Font name="System Italic" size="15.0" />
          </font>
@@ -52,12 +52,12 @@
       </ImageView>
       <ImageView fx:id="life3" fitHeight="41.0" fitWidth="44.0" layoutX="623.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
       </ImageView>
-      <Label layoutX="267.0" layoutY="16.0" text="Time:">
+      <Label layoutX="267.0" layoutY="16.0" style="-fx-text-fill: white;" text="Time:">
         <font>
           <Font name="System Bold" size="15.0" />
         </font>
       </Label>
-      <Label fx:id="timeLabel" layoutX="333.0" layoutY="18.0" text="0">
+      <Label fx:id="timeLabel" layoutX="333.0" layoutY="18.0" style="-fx-text-fill: white;" text="0">
        <font>
           <Font name="System Italic" size="15.0" />
        </font>

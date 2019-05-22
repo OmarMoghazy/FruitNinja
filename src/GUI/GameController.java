@@ -127,6 +127,8 @@ public class GameController implements Initializable {
 		animationTimer = new AnimationTimer() {
 			@Override
 			public void handle(long arg0) {
+				
+				
 
 				gc.clearRect(0, 0, 800, 600);
 				gc.drawImage(new Image(new File("Resources/bg.png").toURI().toString()), 0, 0, 800, 600);
@@ -258,20 +260,14 @@ public class GameController implements Initializable {
 					} else
 						gameActions.sliceObject(gameActions.getGameObjects().get(i));
 				}
-				c++;
 			}
 		}
-		if (c >= 4)
-			gameActions.combo4();
-		else if (c >= 3)
-			gameActions.combo3();
-		else if (c >= 2)
-			gameActions.combo2();
-		c = 0;
 	}
 
 	@FXML
 	public void reset(ActionEvent e) throws IOException {
+		wiiPlayer.stop();
+		wiiPlayer.play();
 		billie.stop();
 		evilmorty.stop();
 		highscorelabel.setText(Integer.toString(highscore));
