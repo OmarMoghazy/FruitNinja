@@ -43,6 +43,7 @@ public class MainMenuController implements Initializable {
 	public void easybutton(ActionEvent event) throws IOException {
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		GameActions.setDifficulty(Difficulty.EASY);
+		GameController.gameMode = "normal";
 		Parent root = FXMLLoader.load(getClass().getResource("Game.fxml"));
 		Scene scene = new Scene(root, 800, 600);
 		window.setScene(scene);
@@ -53,6 +54,7 @@ public class MainMenuController implements Initializable {
 	public void mediumbutton(ActionEvent event) throws IOException {
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		GameActions.setDifficulty(Difficulty.MEDIUM);
+		GameController.gameMode = "normal";
 		Parent root = FXMLLoader.load(getClass().getResource("Game.fxml"));
 		Scene scene = new Scene(root, 800, 600);
 		window.setScene(scene);
@@ -62,6 +64,7 @@ public class MainMenuController implements Initializable {
 	public void hardbutton(ActionEvent event) throws IOException {
 		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		GameActions.setDifficulty(Difficulty.HARD);
+		GameController.gameMode = "normal";
 		Parent root = FXMLLoader.load(getClass().getResource("Game.fxml"));
 		Scene scene = new Scene(root, 800, 600);
 		window.setScene(scene);
@@ -77,6 +80,17 @@ public class MainMenuController implements Initializable {
 			mediumbutton(event);
 		else if (x==2)
 			easybutton(event);
+	}
+
+	@FXML
+	public void arcadeButton(ActionEvent event) throws IOException  {
+		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		GameActions.setDifficulty(Difficulty.MEDIUM);
+		GameController.gameMode = "arcade";
+		Parent root = FXMLLoader.load(getClass().getResource("Game.fxml"));
+		Scene scene = new Scene(root, 800, 600);
+		window.setScene(scene);
+		window.show();
 	}
 	
 	public void loadGame(ActionEvent event) throws IOException {

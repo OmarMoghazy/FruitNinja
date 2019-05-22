@@ -43,7 +43,7 @@ public class GameController implements Initializable {
 	//private MediaPlayer gameOver = new MediaPlayer(new Media(getClass().getResource("/nick.mp3").toString()));
 
 	@FXML	private Canvas canvas;
-	@FXML	private Label scorelabel, highscorelabel, gamediflabel, timeLabel;
+	@FXML	private Label scorelabel, highscorelabel, gamediflabel, timeLabel, lives;
 	@FXML	private ImageView life1, life2, life3;
 	@FXML	private Button resetButton;
 
@@ -56,6 +56,7 @@ public class GameController implements Initializable {
 	private int highscore = 0;
 	public static int flag = 1;
 	private int c = 0;
+	public static String gameMode;
 
 	private Image life = new Image(new File("Resources/lives2.png").toURI().toString());
 
@@ -79,10 +80,12 @@ public class GameController implements Initializable {
 			gameActions.ResetGame();
 			gameActions.loadGame();
 		}
-		
-		if(GameActions.getDifficulty().equals(Difficulty.EASY)) gamediflabel.setText("Easy");
+
+		if(gameMode.equals("arcade"))	gamediflabel.setText("Arcade");
+		else if(GameActions.getDifficulty().equals(Difficulty.EASY)) gamediflabel.setText("Easy");
 		else if(GameActions.getDifficulty().equals(Difficulty.MEDIUM)) gamediflabel.setText("Medium");
-		else gamediflabel.setText("Hard");
+		else if(GameActions.getDifficulty().equals(Difficulty.HARD)) gamediflabel.setText("Hard");
+
 		gc = canvas.getGraphicsContext2D();
 		timeline = new Timeline(new KeyFrame(Duration.seconds(1), actionEvent -> {
 			gameActions.createGameObject();
@@ -94,23 +97,33 @@ public class GameController implements Initializable {
 		animationTimer = new AnimationTimer() {
 			@Override
 			public void handle(long arg0) {
-				
+
 				gc.clearRect(0, 0, 800, 600);
 				gc.drawImage(new Image(new File("Resources/bg.png").toURI().toString()), 0, 0, 800, 600);
 
-				//has to be there for life bonus
-				life1.setVisible(true);
-				life2.setVisible(true);
-				life3.setVisible(true);
-				
-				if (GameActions.getLives() < 3)	life1.setVisible(false);
-				if (GameActions.getLives() < 2)	life2.setVisible(false);	
-				if (GameActions.getLives() < 1)	life3.setVisible(false);
+				if(gameMode.equals("arcade")){
+					life1.setVisible(false);
+					life2.setVisible(false);
+					life3.setVisible(false);
 
-				gameActions.checkFallingObjects();
-				if(GameActions.getLives() == 0)	loseGame();
+					gameActions.checkFallingObjects2();
+
+					if(GameActions.getTime() == 60) loseGame();
+				}
+				else {
+					//has to be there for life bonus
+					life1.setVisible(true);
+					life2.setVisible(true);
+					life3.setVisible(true);
+
+					if (GameActions.getLives() < 3)	life1.setVisible(false);
+					if (GameActions.getLives() < 2)	life2.setVisible(false);
+					if (GameActions.getLives() < 1)	life3.setVisible(false);
+
+					gameActions.checkFallingObjects();
+					if(GameActions.getLives() == 0)	loseGame();
+				}
 				gameActions.updateObjectsLocations(gc);
-
 				scorelabel.setText(Integer.toString(GameActions.getScore()));
 				timeLabel.setText(Integer.toString(GameActions.getTime()));
 				if(GameActions.getScore() > highscore) highscorelabel.setText(Integer.toString(GameActions.getScore()));
@@ -142,7 +155,7 @@ public class GameController implements Initializable {
 	private void loseGame() {
 		animationTimer.stop();
 		timeline.stop();
-		Alerts.imageAlert("u kiding meeeee", "Resources/gaemo.png");
+		Alerts.imageAlert("game over", "Resources/gaemo.png");
 		if(GameActions.getScore() > highscore) {
 			highscore = GameActions.getScore();
 			highscorelabel.setText(Integer.toString(highscore));
@@ -169,17 +182,21 @@ public class GameController implements Initializable {
 					&& !gameActions.getGameObjects().get(i).isSliced()
 					&& (mouseY >= gameActions.getGameObjects().get(i).getYlocation()
 					&& mouseY <= gameActions.getGameObjects().get(i).getYlocation() + 75)) {
-				if(gameActions.getGameObjects().get(i) instanceof FatalBomb)	loseGame();
-				else if(gameActions.getGameObjects().get(i) instanceof SpecialFruit){
-					gameActions.sliceObject(gameActions.getGameObjects().get(i));
-					gameActions.lifeBonus();
+				if(gameMode.equals("arcade")){
+					gameActions.sliceObject2(gameActions.getGameObjects().get(i));
+				}
+				else{
+					if(gameActions.getGameObjects().get(i) instanceof FatalBomb)	loseGame();
+					else if(gameActions.getGameObjects().get(i) instanceof SpecialFruit){
+						gameActions.sliceObject(gameActions.getGameObjects().get(i));
 					/*
 					for (int j = 0; j < gameActions.getGameObjects().size(); j++){
 						if (gameActions.getGameObjects().get(i) instanceof RegularFruit)
 							gameActions.sliceObject(gameActions.getGameObjects().get(i));
 					}*/
+					}
+					else gameActions.sliceObject(gameActions.getGameObjects().get(i));
 				}
-				else gameActions.sliceObject(gameActions.getGameObjects().get(i));
 				c++;
 			}
 		}
