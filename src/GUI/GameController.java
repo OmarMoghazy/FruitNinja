@@ -272,6 +272,8 @@ public class GameController implements Initializable {
 
 	@FXML
 	public void reset(ActionEvent e) throws IOException {
+		billie.stop();
+		evilmorty.stop();
 		highscorelabel.setText(Integer.toString(highscore));
 		gameActions.ResetGame();
 		gameActions.updateObjectsLocations(gc);
