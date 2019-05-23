@@ -12,18 +12,18 @@ public class RegularFruit extends GameObject implements IGameObject {
 		int x = (int)(Math.random() * 3);
 		switch(x) {
 		case 0 : {
-			images[0] = new Image(new File("Resources/onion.png").toURI().toString());
-			images[1] = new Image(new File("Resources/sonion.png").toURI().toString());
+			images[0] = new Image("/onion.png");
+			images[1] = new Image("/sonion.png");
 		}
 		break;
 		case 1 : {
-			images[0] = new Image(new File("Resources/potato.png").toURI().toString());
-			images[1] = new Image(new File("Resources/spotato.png").toURI().toString());
+			images[0] = new Image("/potato.png");
+			images[1] = new Image("/spotato.png");
 		}
 		break;
 		case 2 : {
-			images[0] = new Image(new File("Resources/cabbage.png").toURI().toString());
-			images[1] = new Image(new File("Resources/scabbage.png").toURI().toString());
+			images[0] = new Image("/cabbage.png");
+			images[1] = new Image("/scabbage.png");
 		}
 		break;
 		}

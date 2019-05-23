@@ -12,13 +12,13 @@ public class SpecialFruit extends GameObject implements IGameObject{
 		int x = (int)(Math.random() * 2);
 		switch(x) {
 		case 0 : {
-			images[0] = new Image(new File("Resources/pepper.png").toURI().toString());
-			images[1] = new Image(new File("Resources/spepper.png").toURI().toString());
+			images[0] = new Image("/pepper.png");
+			images[1] = new Image("/spepper.png");
 		}
 		break;
 		case 1 : {
-			images[0] = new Image(new File("Resources/pepper2.png").toURI().toString());
-			images[1] = new Image(new File("Resources/spepper2.png").toURI().toString());
+			images[0] = new Image("/pepper2.png");
+			images[1] = new Image("/spepper2.png");
 		}
 		break;
 		}

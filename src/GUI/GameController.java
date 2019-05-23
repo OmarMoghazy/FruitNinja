@@ -39,12 +39,12 @@ import misc.Difficulty;
 
 public class GameController implements Initializable {
 
-	private MediaPlayer SliceSound = new MediaPlayer(new Media(new File("Resources/slice.mp3").toURI().toString()));
-	private MediaPlayer SpecialSound = new MediaPlayer(new Media(new File("Resources/special.mp3").toURI().toString()));
-	private MediaPlayer BombSound = new MediaPlayer(new Media(new File("Resources/bomb.mp3").toURI().toString()));
-	private MediaPlayer billie = new MediaPlayer(new Media(new File("Resources/highscore.mp3").toURI().toString()));
-	private MediaPlayer wiiPlayer = new MediaPlayer(new Media(new File("Resources/wii.mp3").toURI().toString()));
-	private MediaPlayer evilmorty = new MediaPlayer(new Media(new File("Resources/gameover.mp3").toURI().toString()));
+	private MediaPlayer SliceSound = new MediaPlayer(new Media(getClass().getResource("/slice.mp3").toString()));
+	private MediaPlayer SpecialSound = new MediaPlayer(new Media(getClass().getResource("/special.mp3").toString()));
+	private MediaPlayer BombSound = new MediaPlayer(new Media(getClass().getResource("/bomb.mp3").toString()));
+	private MediaPlayer billie = new MediaPlayer(new Media(getClass().getResource("/highscore.mp3").toString()));
+	private MediaPlayer wiiPlayer = new MediaPlayer(new Media(getClass().getResource("/wii.mp3").toString()));
+	private MediaPlayer evilmorty = new MediaPlayer(new Media(getClass().getResource("/gameover.mp3").toString()));
 
 	@FXML private Canvas canvas;
 	@FXML private Label scorelabel, highscorelabel, gamediflabel, timeLabel, lives;
@@ -61,8 +61,9 @@ public class GameController implements Initializable {
 	static int flag = 1;
 	private int c = 0;
 	static String gameMode;
+	private Image bg = new Image("bg.png");
 
-	private Image life = new Image(new File("Resources/lives2.png").toURI().toString());
+	private Image life = new Image("/lives2.png");
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -88,7 +89,6 @@ public class GameController implements Initializable {
 		if (flag == 1)
 			gameActions.ResetGame();
 		else {
-			gameActions.ResetGame();
 			gameActions.loadGame();
 		}
 
@@ -115,7 +115,7 @@ public class GameController implements Initializable {
 			public void handle(long arg0) {
 
 				gc.clearRect(0, 0, 800, 600);
-				gc.drawImage(new Image(new File("Resources/bg.png").toURI().toString()), 0, 0, 800, 600);
+				gc.drawImage(bg, 0, 0, 800, 600);
 
 				if (gameMode.equals("arcade")) {
 					life1.setVisible(false);
@@ -180,7 +180,7 @@ public class GameController implements Initializable {
 		wiiPlayer.stop();
 		animationTimer.stop();
 		timeline.stop();
-		Alerts.imageAlert("game over", "Resources/gaemo.png");
+		Alerts.imageAlert("game over", "/gaemo.png");
 		if (GameActions.getScore() > highscore) {
 			billie.setCycleCount(MediaPlayer.INDEFINITE);
 			billie.stop();

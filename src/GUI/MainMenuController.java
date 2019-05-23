@@ -23,11 +23,11 @@ import misc.Difficulty;
 
 public class MainMenuController implements Initializable {
 
-	private MediaPlayer Mainmenu = new MediaPlayer(new Media(new File("Resources/mainmenu.mp3").toURI().toString()));
+	private MediaPlayer Mainmenu = new MediaPlayer(new Media(getClass().getResource("/mainmenu.mp3").toString()));
 
 	@FXML private ImageView mainMenu;
 
-	Image image = new Image(new File("Resources/MainMenu.png").toURI().toString());
+	Image image = new Image("/MainMenu.png");
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

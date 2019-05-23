@@ -38,7 +38,7 @@ public class Alerts {
 		alert.setMinHeight(200);
 		alert.setMinWidth(250);
 
-		Image image = new Image(new File(FileName).toURI().toString());
+		Image image = new Image(FileName);
 		ImageView imageView = new ImageView(image);
 		// Label label = new Label(FileName);
 		VBox layout = new VBox();

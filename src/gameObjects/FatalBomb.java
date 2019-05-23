@@ -9,8 +9,8 @@ import misc.ObjectType;
 public class FatalBomb extends GameObject implements IGameObject{
 	ObjectType objectType = ObjectType.FATAL_BOMB;
 	public FatalBomb() {
-		images[0] = new Image(new File("Resources/bomb2.png").toURI().toString());
-		images[1] = new Image(new File("Resources/sbomb1.png").toURI().toString());
+		images[0] = new Image("/bomb2.png");
+		images[1] = new Image("/sbomb1.png");
 		this.Xlocation = (int) (Math.random() * 600 +75);
 		this.Ylocation = 550;
 		maxHeight = Math.random() * 600 * 0.2;

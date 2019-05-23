@@ -10,8 +10,8 @@ public class DangerousBomb extends GameObject implements IGameObject {
 	ObjectType objectType = ObjectType.DANGEROUS_BOMB;
 
 	public DangerousBomb() {
-		images[0] = new Image(new File("Resources/bomb1.png").toURI().toString());
-		images[1] = new Image(new File("Resources/sbomb1.png").toURI().toString());
+		images[0] = new Image("/bomb1.png");
+		images[1] = new Image("/sbomb1.png");
 		this.Xlocation = Math.random() * 600 + 75;
 		this.Ylocation = 550;
 		maxHeight = Math.random() * 600 * 0.2;
